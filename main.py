@@ -39,6 +39,8 @@ number_of_simulations = col1.number_input("Enter Number of Simulations", value=1
 
 st.divider()
 
+# Distribution Type Selection
+distribution_type = st.selectbox("Select Distribution Type", ["Triangular", "Normal"])
 
 # Combined Distribution Containers
 with st.container(border=True):
@@ -57,12 +59,21 @@ with st.container(border=True):
             
             # Generate Notice Percentage Distribution Plot
             fig_notice_pct = go.Figure()
-            fig_notice_pct.add_trace(go.Histogram(x=np.random.triangular(
-                notice_pct_dist_x1, 
-                notice_pct_dist_x2, 
-                notice_pct_dist_x3, 
-                notice_pct_dist_x4
-            ), name="Notice %"))
+            if distribution_type == "Triangular":
+                fig_notice_pct.add_trace(go.Histogram(x=np.random.triangular(
+                    notice_pct_dist_x1, 
+                    notice_pct_dist_x2, 
+                    notice_pct_dist_x3, 
+                    notice_pct_dist_x4
+                ), name="Notice %"))
+            else:
+                mean = (notice_pct_dist_x1 + notice_pct_dist_x2 + notice_pct_dist_x3) / 3
+                std_dev = (notice_pct_dist_x3 - notice_pct_dist_x1) / 6  # Approximation for std dev in a normal distribution
+                fig_notice_pct.add_trace(go.Histogram(x=np.random.normal(
+                    mean, 
+                    std_dev, 
+                    notice_pct_dist_x4
+                ), name="Notice %"))
             fig_notice_pct.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_notice_pct, use_container_width=True)
 
@@ -78,12 +89,21 @@ with st.container(border=True):
             
             # Generate Notice Percentage Loss Distribution Plot
             fig_notice_pct_loss = go.Figure()
-            fig_notice_pct_loss.add_trace(go.Histogram(x=np.random.triangular(
-                notice_pct_loss_dist_x1, 
-                notice_pct_loss_dist_x2, 
-                notice_pct_loss_dist_x3, 
-                notice_pct_loss_dist_x4
-            ), name="Notice % Loss"))
+            if distribution_type == "Triangular":
+                fig_notice_pct_loss.add_trace(go.Histogram(x=np.random.triangular(
+                    notice_pct_loss_dist_x1, 
+                    notice_pct_loss_dist_x2, 
+                    notice_pct_loss_dist_x3, 
+                    notice_pct_loss_dist_x4
+                ), name="Notice % Loss"))
+            else:
+                mean = (notice_pct_loss_dist_x1 + notice_pct_loss_dist_x2 + notice_pct_loss_dist_x3) / 3
+                std_dev = (notice_pct_loss_dist_x3 - notice_pct_loss_dist_x1) / 6  # Approximation for std dev in a normal distribution
+                fig_notice_pct_loss.add_trace(go.Histogram(x=np.random.normal(
+                    mean, 
+                    std_dev, 
+                    notice_pct_loss_dist_x4
+                ), name="Notice % Loss"))
             fig_notice_pct_loss.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_notice_pct_loss, use_container_width=True)
 
@@ -99,18 +119,24 @@ with st.container(border=True):
             
             # Generate Severity Distribution Plot
             fig_severity = go.Figure()
-            fig_severity.add_trace(go.Histogram(x=np.random.triangular(
-                severity_dist_x1, 
-                severity_dist_x2, 
-                severity_dist_x3, 
-                severity_dist_x4
-            ), name="Severity"))
+            if distribution_type == "Triangular":
+                fig_severity.add_trace(go.Histogram(x=np.random.triangular(
+                    severity_dist_x1, 
+                    severity_dist_x2, 
+                    severity_dist_x3, 
+                    severity_dist_x4
+                ), name="Severity"))
+            else:
+                mean = (severity_dist_x1 + severity_dist_x2 + severity_dist_x3) / 3
+                std_dev = (severity_dist_x3 - severity_dist_x1) / 6  # Approximation for std dev in a normal distribution
+                fig_severity.add_trace(go.Histogram(x=np.random.normal(
+                    mean, 
+                    std_dev, 
+                    severity_dist_x4
+                ), name="Severity"))
             fig_severity.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_severity, use_container_width=True)
 
-notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
-notice_pct_loss_dist = np.random.triangular(notice_pct_loss_dist_x1, notice_pct_loss_dist_x2, notice_pct_loss_dist_x3, notice_pct_loss_dist_x4)
-severity_dist = np.random.triangular(severity_dist_x1, severity_dist_x2, severity_dist_x3, severity_dist_x4)
 
 # notice_pct, notice_pct_loss, low_severity_pct, med_severity_pct, high_severity_pct = severity_generator(notice_pct_dist, notice_pct_loss_dist, severity_dist)
 
