@@ -25,10 +25,10 @@ st.set_page_config(layout="wide")  # Force wide mode
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-# AWS Credentials
-aws_access_key_id = st.secrets.AWS_ACCESS_KEY_ID
-aws_secret_access_key = st.secrets.AWS_SECRET_ACCESS_KEY
-aws_default_region = st.secrets.AWS_DEFAULT_REGION
+# # AWS Credentials
+# aws_access_key_id = st.secrets.AWS_ACCESS_KEY_ID
+# aws_secret_access_key = st.secrets.AWS_SECRET_ACCESS_KEY
+# aws_default_region = st.secrets.AWS_DEFAULT_REGION
 
 def div():
     st.divider()
@@ -187,9 +187,7 @@ def w(string):
     st.write(string)
 
 # w(f'procong list:{pricing_list}')
-
 # notice_list = notice_generator(deal_count, notice_pct, notice_pct_loss, low_severity_pct, med_severity_pct, high_severity_pct)
-
 # w(f'notice list: {notice_list}')
 
 with st.container():
