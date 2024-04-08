@@ -264,7 +264,7 @@ with st.container(border=True):
         delta_max_performance = "-500"
         delta_min_performance = "+200"
 
-        col1, col2 = st.columns(2)
+        col1, _ = st.columns(2)
 
         with col1.container(border=True):
             col1_1, col1_2, col1_3 = st.columns(3)
@@ -275,7 +275,9 @@ with st.container(border=True):
             with col1_3:
                 st.metric(label="Pct. of scenarios above 10m", value=f"{percentage_above_10m*100:.2f}%", delta=delta_percentage_above_10m)
         
-        with col2.container(border=True):
+
+        col1, _ = st.columns(2)
+        with col1.container(border=True):
             col2_1, col2_2, col2_3 = st.columns(3)
             with col2_1:
                 st.metric(label="Average", value=f"{average_performance}", delta=delta_average_performance)
