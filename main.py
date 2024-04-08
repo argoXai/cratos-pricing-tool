@@ -43,11 +43,11 @@ st.divider()
 # Combined Distribution Containers
 with st.container(border=True):
     st.subheader("Distributions")
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2, col3 = st.columns([2,2,2])
 
     # Notice Percentage Distribution
-    with st.container(border=True):
-        with col1:
+    with col1:
+        with st.container(border=True):
             st.subheader("Notice Percentage Distribution")
             notice_pct_dist_x1 = st.number_input("Left", value=0.05, key="notice_left", format="%.2f")
             notice_pct_dist_x2 = st.number_input("Center", value=0.15, key="notice_center", format="%.2f")
@@ -65,8 +65,8 @@ with st.container(border=True):
             st.plotly_chart(fig_notice_pct)
 
     # Notice Percentage Loss Distribution
-    with st.container(border=True):
-        with col2:
+    with col2:
+        with st.container(border=True):
             st.subheader("Notice Percentage Loss Distribution")
             notice_pct_loss_dist_x1 = st.number_input("Left", value=0.15, key="loss_left", format="%.2f")
             notice_pct_loss_dist_x2 = st.number_input("Center", value=0.25, key="loss_center", format="%.2f")
@@ -84,8 +84,8 @@ with st.container(border=True):
             st.plotly_chart(fig_notice_pct_loss)
 
     # Severity Distribution
-    with st.container(border=True):
-        with col3:
+    with col3:
+        with st.container(border=True):
             st.subheader("Severity Distribution")
             severity_dist_x1 = st.number_input("Left", value=0.65, key="severity_left", format="%.2f")
             severity_dist_x2 = st.number_input("Center", value=0.7, key="severity_center", format="%.2f")
