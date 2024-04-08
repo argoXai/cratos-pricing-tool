@@ -127,9 +127,9 @@ with st.container(border=True):
 
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
-    sme_low_DV, sme_upper_DV = col17.slider("Select SME DV Range", min_value=1000000, max_value=100000000, value=(10000000, 75000000))
-    mm_low_DV, mm_upper_DV = col18.slider("Select MM DV Range", min_value=50000000, max_value=1000000000, value=(75000000, 750000000))
-    j_low_DV, j_upper_DV = col19.slider("Select J DV Range", min_value=500000000, max_value=10000000000, value=(750000000, 5000000000))
+    sme_low_DV, sme_upper_DV = col17.slider("Select SME DV Range", min_value=1000000, max_value=100000000, value=(10000000, 75000000), step=DV_range)
+    mm_low_DV, mm_upper_DV = col18.slider("Select MM DV Range", min_value=50000000, max_value=1000000000, value=(75000000, 750000000), step=DV_range)
+    j_low_DV, j_upper_DV = col19.slider("Select J DV Range", min_value=500000000, max_value=10000000000, value=(750000000, 5000000000), step=DV_range)
 
     # Empty columns to fill the space as per instruction, but not used for inputs
     # col18, col19, col20 are placeholders for future expansion or to maintain the layout
