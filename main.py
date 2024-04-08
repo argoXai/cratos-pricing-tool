@@ -267,7 +267,7 @@ with st.container(border=True):
         col1, col2 = st.columns(2)
 
         with col1:
-            st.metric(label="Percentage of scenarios above 0m", value=f"{percentage_above_0*100:.2f}}%", delta=delta_percentage_above_0)
+            st.metric(label="Percentage of scenarios above 0m", value=f"{percentage_above_0*100:.2f}%", delta=delta_percentage_above_0)
             st.metric(label="Percentage of scenarios above 1m", value=f"{percentage_above_1m*100:.2f}%", delta=delta_percentage_above_1m)
             st.metric(label="Percentage of scenarios above 10m", value=f"{percentage_above_10m*100:.2f}%", delta=delta_percentage_above_10m)
         
