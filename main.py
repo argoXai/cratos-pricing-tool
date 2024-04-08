@@ -2,7 +2,7 @@
 # import numpy as np
 # # import seaborn as sns
 # import random
-# import numpy as np
+import numpy as np
 # import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
