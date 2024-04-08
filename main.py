@@ -61,7 +61,7 @@ with st.container(border=True):
             else:
                 notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_mean", format="%.2f")
                 notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_std", format="%.2f")
-                notice_pct_dist_skew = col1_1.number_input("Skew", value=0, key="notice_skew", format="%d")
+                notice_pct_dist_skew = col1_1.number_input("Skew", value=3, key="notice_skew", format="%d")
                 notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
                 notice_pct_dist = skewnorm.rvs(a=notice_pct_dist_skew, loc=notice_pct_dist_mean, scale=notice_pct_dist_std, size=notice_pct_dist_x4)
             
@@ -85,7 +85,7 @@ with st.container(border=True):
             else:
                 notice_pct_loss_dist_mean = col2_2.number_input("Mean", value=0.25, key="loss_mean", format="%.2f")
                 notice_pct_loss_dist_std = col2_3.number_input("Std", value=0.05, key="loss_std", format="%.2f")
-                notice_pct_loss_dist_skew = col2_1.number_input("Skew", value=0, key="loss_skew", format="%d")
+                notice_pct_loss_dist_skew = col2_1.number_input("Skew", value=3, key="loss_skew", format="%d")
                 notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
                 notice_pct_loss_dist = skewnorm.rvs(a=notice_pct_loss_dist_skew, loc=notice_pct_loss_dist_mean, scale=notice_pct_loss_dist_std, size=notice_pct_loss_dist_x4)
             
@@ -109,7 +109,7 @@ with st.container(border=True):
             else:
                 severity_dist_mean = col3_2.number_input("Mean", value=0.7, key="severity_mean", format="%.2f")
                 severity_dist_std = col3_3.number_input("Std", value=0.05, key="severity_std", format="%.2f")
-                severity_dist_skew = col3_1.number_input("Skew", value=0, key="severity_skew", format="%d")
+                severity_dist_skew = col3_1.number_input("Skew", value=3, key="severity_skew", format="%d")
                 severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
                 severity_dist = skewnorm.rvs(a=severity_dist_skew, loc=severity_dist_mean, scale=severity_dist_std, size=severity_dist_x4)
             
