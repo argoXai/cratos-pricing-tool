@@ -267,14 +267,22 @@ with st.container(border=True):
         col1, col2 = st.columns(2)
 
         with col1.container(border=True):
-            st.metric(label="Percentage of scenarios above 0m", value=f"{percentage_above_0*100:.2f}%", delta=delta_percentage_above_0)
-            st.metric(label="Percentage of scenarios above 1m", value=f"{percentage_above_1m*100:.2f}%", delta=delta_percentage_above_1m)
-            st.metric(label="Percentage of scenarios above 10m", value=f"{percentage_above_10m*100:.2f}%", delta=delta_percentage_above_10m)
+            col1_1, col1_2, col1_3 = st.columns(3)
+            with col1_1:
+                st.metric(label="Pct. of scenarios above 0m", value=f"{percentage_above_0*100:.2f}%", delta=delta_percentage_above_0)
+            with col1_2:
+                st.metric(label="Pct. of scenarios above 1m", value=f"{percentage_above_1m*100:.2f}%", delta=delta_percentage_above_1m)
+            with col1_3:
+                st.metric(label="Pct. of scenarios above 10m", value=f"{percentage_above_10m*100:.2f}%", delta=delta_percentage_above_10m)
         
         with col2.container(border=True):
-            st.metric(label="Average", value=f"{average_performance}", delta=delta_average_performance)
-            st.metric(label="Max", value=f"{max_performance}", delta=delta_max_performance)
-            st.metric(label="Min", value=f"{min_performance}", delta=delta_min_performance)
+            col2_1, col2_2, col2_3 = st.columns(3)
+            with col2_1:
+                st.metric(label="Average", value=f"{average_performance}", delta=delta_average_performance)
+            with col2_2:
+                st.metric(label="Max", value=f"{max_performance}", delta=delta_max_performance)
+            with col2_3:
+                st.metric(label="Min", value=f"{min_performance}", delta=delta_min_performance)
 
         div()
         w(df)
