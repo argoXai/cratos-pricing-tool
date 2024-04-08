@@ -63,7 +63,7 @@ with st.container(border=True):
                 notice_pct_dist_x3, 
                 notice_pct_dist_x4
             ), name="Notice %"))
-            fig_notice_pct.update_layout(margin=dict(l=10, r=10, t=10, b=10), autosize=True, height=300)  # Adjusted margins and height for less tall and slightly less wide histogram
+            fig_notice_pct.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_notice_pct, use_container_width=True)
 
     # Notice Percentage Loss Distribution
@@ -84,7 +84,7 @@ with st.container(border=True):
                 notice_pct_loss_dist_x3, 
                 notice_pct_loss_dist_x4
             ), name="Notice % Loss"))
-            fig_notice_pct_loss.update_layout(margin=dict(l=10, r=10, t=10, b=10), autosize=True, height=300)  # Adjusted margins and height for less tall and slightly less wide histogram
+            fig_notice_pct_loss.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_notice_pct_loss, use_container_width=True)
 
     # Severity Distribution
@@ -105,7 +105,7 @@ with st.container(border=True):
                 severity_dist_x3, 
                 severity_dist_x4
             ), name="Severity"))
-            fig_severity.update_layout(margin=dict(l=10, r=10, t=10, b=10), autosize=True, height=300)  # Adjusted margins and height for less tall and slightly less wide histogram
+            fig_severity.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
             st.plotly_chart(fig_severity, use_container_width=True)
 
 notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
