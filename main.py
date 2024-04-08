@@ -48,7 +48,7 @@ with st.container(border=True):
     # Notice Percentage Distribution
     with col1:
         with st.container(border=True):
-            st.subheader("Notice Percentage Distribution")
+            st.subheader("Notice Pct. Distribution")
             col1_1, col1_2, col1_3, col1_4 = st.columns(4)
             notice_pct_dist_x1 = col1_1.number_input("Left", value=0.05, key="notice_left", format="%.2f")
             notice_pct_dist_x2 = col1_2.number_input("Center", value=0.15, key="notice_center", format="%.2f")
@@ -69,7 +69,7 @@ with st.container(border=True):
     # Notice Percentage Loss Distribution
     with col2:
         with st.container(border=True):
-            st.subheader("Notice Percentage Loss Distribution")
+            st.subheader("Notice Pct-Loss Distribution")
             col2_1, col2_2, col2_3, col2_4 = st.columns(4)
             notice_pct_loss_dist_x1 = col2_1.number_input("Left", value=0.15, key="loss_left", format="%.2f")
             notice_pct_loss_dist_x2 = col2_2.number_input("Center", value=0.25, key="loss_center", format="%.2f")
