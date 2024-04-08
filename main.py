@@ -256,6 +256,7 @@ with st.container(border=True):
         max_performance = round(max(performance_stats))
         min_performance = round(min(performance_stats))
 
+
         with st.container(border=True):
             col1, col2, col3 = st.columns(3)
             with col1:
