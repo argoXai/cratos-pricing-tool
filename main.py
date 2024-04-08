@@ -62,7 +62,8 @@ with st.container(border=True):
                 notice_pct_dist_x3, 
                 notice_pct_dist_x4
             ), name="Notice %"))
-            st.plotly_chart(fig_notice_pct)
+            fig_notice_pct.update_layout(margin=dict(l=20, r=20, t=20, b=20), autosize=True)
+            st.plotly_chart(fig_notice_pct, use_container_width=True)
 
     # Notice Percentage Loss Distribution
     with col2:
@@ -81,7 +82,8 @@ with st.container(border=True):
                 notice_pct_loss_dist_x3, 
                 notice_pct_loss_dist_x4
             ), name="Notice % Loss"))
-            st.plotly_chart(fig_notice_pct_loss)
+            fig_notice_pct_loss.update_layout(margin=dict(l=20, r=20, t=20, b=20), autosize=True)
+            st.plotly_chart(fig_notice_pct_loss, use_container_width=True)
 
     # Severity Distribution
     with col3:
@@ -100,7 +102,8 @@ with st.container(border=True):
                 severity_dist_x3, 
                 severity_dist_x4
             ), name="Severity"))
-            st.plotly_chart(fig_severity)
+            fig_severity.update_layout(margin=dict(l=20, r=20, t=20, b=20), autosize=True)
+            st.plotly_chart(fig_severity, use_container_width=True)
 
 notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
 notice_pct_loss_dist = np.random.triangular(notice_pct_loss_dist_x1, notice_pct_loss_dist_x2, notice_pct_loss_dist_x3, notice_pct_loss_dist_x4)
