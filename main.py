@@ -38,13 +38,12 @@ col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
 number_of_simulations = col1.number_input("Enter Number of Simulations", value=10000)
 
 st.divider()
-
 # Combined Distribution Containers
 with st.container(border=True):
     st.subheader("Distributions")
     
     # Distribution Type Selection
-    dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal', 'Skewed Normal'], index=0)
+    dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal'], index=0)
     
     col1, col2, col3 = st.columns([2,2,2])
 
@@ -59,16 +58,11 @@ with st.container(border=True):
                 notice_pct_dist_x3 = col1_3.number_input("Right", value=0.25, key="notice_right", format="%.2f")
                 notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
                 notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
-            elif dist_type == 'Normal':
+            else:
                 notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_mean", format="%.2f")
                 notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_std", format="%.2f")
+                notice_pct_dist_skew = col1_1.number_input("Skew", value=0, key="notice_skew", format="%d")
                 notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
-                notice_pct_dist = np.random.normal(notice_pct_dist_mean, notice_pct_dist_std, notice_pct_dist_x4)
-            else:  # Skewed Normal Distribution
-                notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_skew_mean", format="%.2f")
-                notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_skew_std", format="%.2f")
-                notice_pct_dist_skew = col1_1.number_input("Skew", value=0.0, key="notice_skew", format="%.2f")
-                notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_skew_size")
                 notice_pct_dist = skewnorm.rvs(a=notice_pct_dist_skew, loc=notice_pct_dist_mean, scale=notice_pct_dist_std, size=notice_pct_dist_x4)
             
             # Generate Notice Percentage Distribution Plot
@@ -91,8 +85,9 @@ with st.container(border=True):
             else:
                 notice_pct_loss_dist_mean = col2_2.number_input("Mean", value=0.25, key="loss_mean", format="%.2f")
                 notice_pct_loss_dist_std = col2_3.number_input("Std", value=0.05, key="loss_std", format="%.2f")
+                notice_pct_loss_dist_skew = col2_1.number_input("Skew", value=0, key="loss_skew", format="%d")
                 notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
-                notice_pct_loss_dist = np.random.normal(notice_pct_loss_dist_mean, notice_pct_loss_dist_std, notice_pct_loss_dist_x4)
+                notice_pct_loss_dist = skewnorm.rvs(a=notice_pct_loss_dist_skew, loc=notice_pct_loss_dist_mean, scale=notice_pct_loss_dist_std, size=notice_pct_loss_dist_x4)
             
             # Generate Notice Percentage Loss Distribution Plot
             fig_notice_pct_loss = go.Figure()
@@ -114,8 +109,9 @@ with st.container(border=True):
             else:
                 severity_dist_mean = col3_2.number_input("Mean", value=0.7, key="severity_mean", format="%.2f")
                 severity_dist_std = col3_3.number_input("Std", value=0.05, key="severity_std", format="%.2f")
+                severity_dist_skew = col3_1.number_input("Skew", value=0, key="severity_skew", format="%d")
                 severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
-                severity_dist = np.random.normal(severity_dist_mean, severity_dist_std, severity_dist_x4)
+                severity_dist = skewnorm.rvs(a=severity_dist_skew, loc=severity_dist_mean, scale=severity_dist_std, size=severity_dist_x4)
             
             # Generate Severity Distribution Plot
             fig_severity = go.Figure()
