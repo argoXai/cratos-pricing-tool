@@ -121,14 +121,13 @@ severity_dist = np.random.triangular(severity_dist_x1, severity_dist_x2, severit
 # st.write("High Severity %:", high_severity_pct)
 
 with st.container(border=True):
-    col13, col14, col15, col16, col17, col18, col19, col20, col21, col22, col23, col24 = st.columns(12)
+    col13, col14, col15, col16, col17, col18 = st.columns(6)
     deal_count = col13.number_input("Deal Count", value=100)
     DV_range = col14.number_input("DV Range", value=2500000)
     sme_low_DV, sme_upper_DV = col15.slider("Select SME DV Range", min_value=1000000, max_value=100000000, value=(10000000, 75000000))
     mm_low_DV, mm_upper_DV = col16.slider("Select MM DV Range", min_value=50000000, max_value=1000000000, value=(75000000, 750000000))
     j_low_DV, j_upper_DV = col17.slider("Select J DV Range", min_value=500000000, max_value=10000000000, value=(750000000, 5000000000))
-    # Empty columns to fill the space as per instruction, but not used for inputs
-    # col18, col19, col20, col21, col22, col23, col24 are placeholders for future expansion or to maintain the layout
+    # The last column (col18) is left empty to maintain the layout as per the new instruction
 
 with st.container(border=True):
     col1, col2, col3, _ = st.columns([2,2,2,2])
