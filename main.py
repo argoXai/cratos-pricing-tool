@@ -39,6 +39,8 @@ number_of_simulations = col1.number_input("Enter Number of Simulations", value=1
 
 st.divider()
 
+# Distribution Type Selection
+dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal'], index=0)
 
 # Combined Distribution Containers
 with st.container(border=True):
@@ -50,17 +52,22 @@ with st.container(border=True):
         with st.container(border=True):
             st.subheader("Notice Pct. Distribution")
             col1_1, col1_2, col1_3, col1_4 = st.columns(4)
-            notice_pct_dist_x1 = col1_1.number_input("Left", value=0.05, key="notice_left", format="%.2f")
-            notice_pct_dist_x2 = col1_2.number_input("Center", value=0.15, key="notice_center", format="%.2f")
-            notice_pct_dist_x3 = col1_3.number_input("Right", value=0.25, key="notice_right", format="%.2f")
-            notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
-            
-            notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
+            if dist_type == 'Triangular':
+                notice_pct_dist_x1 = col1_1.number_input("Left", value=0.05, key="notice_left", format="%.2f")
+                notice_pct_dist_x2 = col1_2.number_input("Center", value=0.15, key="notice_center", format="%.2f")
+                notice_pct_dist_x3 = col1_3.number_input("Right", value=0.25, key="notice_right", format="%.2f")
+                notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
+                notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
+            else:
+                notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_mean", format="%.2f")
+                notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_std", format="%.2f")
+                notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
+                notice_pct_dist = np.random.normal(notice_pct_dist_mean, notice_pct_dist_std, notice_pct_dist_x4)
             
             # Generate Notice Percentage Distribution Plot
             fig_notice_pct = go.Figure()
             fig_notice_pct.add_trace(go.Histogram(x=notice_pct_dist, name="Notice %"))
-            fig_notice_pct.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
+            fig_notice_pct.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)
             st.plotly_chart(fig_notice_pct, use_container_width=True)
 
     # Notice Percentage Loss Distribution
@@ -68,17 +75,22 @@ with st.container(border=True):
         with st.container(border=True):
             st.subheader("Notice Pct-Loss Distribution")
             col2_1, col2_2, col2_3, col2_4 = st.columns(4)
-            notice_pct_loss_dist_x1 = col2_1.number_input("Left", value=0.15, key="loss_left", format="%.2f")
-            notice_pct_loss_dist_x2 = col2_2.number_input("Center", value=0.25, key="loss_center", format="%.2f")
-            notice_pct_loss_dist_x3 = col2_3.number_input("Right", value=0.35, key="loss_right", format="%.2f")
-            notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
-            
-            notice_pct_loss_dist = np.random.triangular(notice_pct_loss_dist_x1, notice_pct_loss_dist_x2, notice_pct_loss_dist_x3, notice_pct_loss_dist_x4)
+            if dist_type == 'Triangular':
+                notice_pct_loss_dist_x1 = col2_1.number_input("Left", value=0.15, key="loss_left", format="%.2f")
+                notice_pct_loss_dist_x2 = col2_2.number_input("Center", value=0.25, key="loss_center", format="%.2f")
+                notice_pct_loss_dist_x3 = col2_3.number_input("Right", value=0.35, key="loss_right", format="%.2f")
+                notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
+                notice_pct_loss_dist = np.random.triangular(notice_pct_loss_dist_x1, notice_pct_loss_dist_x2, notice_pct_loss_dist_x3, notice_pct_loss_dist_x4)
+            else:
+                notice_pct_loss_dist_mean = col2_2.number_input("Mean", value=0.25, key="loss_mean", format="%.2f")
+                notice_pct_loss_dist_std = col2_3.number_input("Std", value=0.05, key="loss_std", format="%.2f")
+                notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
+                notice_pct_loss_dist = np.random.normal(notice_pct_loss_dist_mean, notice_pct_loss_dist_std, notice_pct_loss_dist_x4)
             
             # Generate Notice Percentage Loss Distribution Plot
             fig_notice_pct_loss = go.Figure()
             fig_notice_pct_loss.add_trace(go.Histogram(x=notice_pct_loss_dist, name="Notice % Loss"))
-            fig_notice_pct_loss.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
+            fig_notice_pct_loss.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)
             st.plotly_chart(fig_notice_pct_loss, use_container_width=True)
 
     # Severity Distribution
@@ -86,17 +98,22 @@ with st.container(border=True):
         with st.container(border=True):
             st.subheader("Severity Distribution")
             col3_1, col3_2, col3_3, col3_4 = st.columns(4)
-            severity_dist_x1 = col3_1.number_input("Left", value=0.65, key="severity_left", format="%.2f")
-            severity_dist_x2 = col3_2.number_input("Center", value=0.7, key="severity_center", format="%.2f")
-            severity_dist_x3 = col3_3.number_input("Right", value=0.75, key="severity_right", format="%.2f")
-            severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
-            
-            severity_dist = np.random.triangular(severity_dist_x1, severity_dist_x2, severity_dist_x3, severity_dist_x4)
+            if dist_type == 'Triangular':
+                severity_dist_x1 = col3_1.number_input("Left", value=0.65, key="severity_left", format="%.2f")
+                severity_dist_x2 = col3_2.number_input("Center", value=0.7, key="severity_center", format="%.2f")
+                severity_dist_x3 = col3_3.number_input("Right", value=0.75, key="severity_right", format="%.2f")
+                severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
+                severity_dist = np.random.triangular(severity_dist_x1, severity_dist_x2, severity_dist_x3, severity_dist_x4)
+            else:
+                severity_dist_mean = col3_2.number_input("Mean", value=0.7, key="severity_mean", format="%.2f")
+                severity_dist_std = col3_3.number_input("Std", value=0.05, key="severity_std", format="%.2f")
+                severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
+                severity_dist = np.random.normal(severity_dist_mean, severity_dist_std, severity_dist_x4)
             
             # Generate Severity Distribution Plot
             fig_severity = go.Figure()
             fig_severity.add_trace(go.Histogram(x=severity_dist, name="Severity"))
-            fig_severity.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)  # Further adjusted margins and height for even smaller histogram
+            fig_severity.update_layout(margin=dict(l=5, r=5, t=5, b=5), autosize=True, height=200)
             st.plotly_chart(fig_severity, use_container_width=True)
 
 # notice_pct, notice_pct_loss, low_severity_pct, med_severity_pct, high_severity_pct = severity_generator(notice_pct_dist, notice_pct_loss_dist, severity_dist)
