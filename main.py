@@ -39,12 +39,13 @@ number_of_simulations = col1.number_input("Enter Number of Simulations", value=1
 
 st.divider()
 
-# Distribution Type Selection
-dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal'], index=0)
-
 # Combined Distribution Containers
 with st.container(border=True):
     st.subheader("Distributions")
+    
+    # Distribution Type Selection
+    dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal'], index=0)
+    
     col1, col2, col3 = st.columns([2,2,2])
 
     # Notice Percentage Distribution
