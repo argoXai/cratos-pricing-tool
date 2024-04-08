@@ -280,11 +280,11 @@ with st.container(border=True):
         with col1.container(border=True):
             col2_1, col2_2, col2_3 = st.columns(3)
             with col2_1:
-                st.metric(label="Average", value=f"${average_performance:,.0f}", delta=delta_average_performance)
+                st.metric(label="Average", value=f"{average_performance:,.0f}", delta=delta_average_performance)
             with col2_2:
-                st.metric(label="Max", value=f"${max_performance:,.0f}", delta=delta_max_performance)
+                st.metric(label="Max", value=f"{max_performance:,.0f}", delta=delta_max_performance)
             with col2_3:
-                st.metric(label="Min", value=f"${min_performance:,.0f}", delta=delta_min_performance)
+                st.metric(label="Min", value=f"{min_performance:,.0f}", delta=delta_min_performance)
 
         div()
         w(df)
