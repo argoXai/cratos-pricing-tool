@@ -250,4 +250,4 @@ with st.container(border=True):
         # Reset progress bar after completion
         progress_bar.empty()
 
-w(f'Frozen: 05-04-2024')
+# w(f'Frozen: 05-04-2024')
