@@ -49,10 +49,11 @@ with st.container(border=True):
     with col1:
         with st.container(border=True):
             st.subheader("Notice Percentage Distribution")
-            notice_pct_dist_x1 = st.number_input("Left", value=0.05, key="notice_left", format="%.2f")
-            notice_pct_dist_x2 = st.number_input("Center", value=0.15, key="notice_center", format="%.2f")
-            notice_pct_dist_x3 = st.number_input("Right", value=0.25, key="notice_right", format="%.2f")
-            notice_pct_dist_x4 = st.number_input("Size", value=100000, key="notice_size")
+            col1_1, col1_2, col1_3, col1_4 = st.columns(4)
+            notice_pct_dist_x1 = col1_1.number_input("Left", value=0.05, key="notice_left", format="%.2f")
+            notice_pct_dist_x2 = col1_2.number_input("Center", value=0.15, key="notice_center", format="%.2f")
+            notice_pct_dist_x3 = col1_3.number_input("Right", value=0.25, key="notice_right", format="%.2f")
+            notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
             
             # Generate Notice Percentage Distribution Plot
             fig_notice_pct = go.Figure()
@@ -69,10 +70,11 @@ with st.container(border=True):
     with col2:
         with st.container(border=True):
             st.subheader("Notice Percentage Loss Distribution")
-            notice_pct_loss_dist_x1 = st.number_input("Left", value=0.15, key="loss_left", format="%.2f")
-            notice_pct_loss_dist_x2 = st.number_input("Center", value=0.25, key="loss_center", format="%.2f")
-            notice_pct_loss_dist_x3 = st.number_input("Right", value=0.35, key="loss_right", format="%.2f")
-            notice_pct_loss_dist_x4 = st.number_input("Size", value=100000, key="loss_size")
+            col2_1, col2_2, col2_3, col2_4 = st.columns(4)
+            notice_pct_loss_dist_x1 = col2_1.number_input("Left", value=0.15, key="loss_left", format="%.2f")
+            notice_pct_loss_dist_x2 = col2_2.number_input("Center", value=0.25, key="loss_center", format="%.2f")
+            notice_pct_loss_dist_x3 = col2_3.number_input("Right", value=0.35, key="loss_right", format="%.2f")
+            notice_pct_loss_dist_x4 = col2_4.number_input("Size", value=100000, key="loss_size")
             
             # Generate Notice Percentage Loss Distribution Plot
             fig_notice_pct_loss = go.Figure()
@@ -89,10 +91,11 @@ with st.container(border=True):
     with col3:
         with st.container(border=True):
             st.subheader("Severity Distribution")
-            severity_dist_x1 = st.number_input("Left", value=0.65, key="severity_left", format="%.2f")
-            severity_dist_x2 = st.number_input("Center", value=0.7, key="severity_center", format="%.2f")
-            severity_dist_x3 = st.number_input("Right", value=0.75, key="severity_right", format="%.2f")
-            severity_dist_x4 = st.number_input("Size", value=100000, key="severity_size")
+            col3_1, col3_2, col3_3, col3_4 = st.columns(4)
+            severity_dist_x1 = col3_1.number_input("Left", value=0.65, key="severity_left", format="%.2f")
+            severity_dist_x2 = col3_2.number_input("Center", value=0.7, key="severity_center", format="%.2f")
+            severity_dist_x3 = col3_3.number_input("Right", value=0.75, key="severity_right", format="%.2f")
+            severity_dist_x4 = col3_4.number_input("Size", value=100000, key="severity_size")
             
             # Generate Severity Distribution Plot
             fig_severity = go.Figure()
