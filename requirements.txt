@@ -1,8 +1,16 @@
 requests
-boto3
-python-dotenv
-pandas
+boto3~=1.34.77
+python-dotenv~=1.0.1
+pandas~=1.5.3
 plotly~=5.9.0
 
 streamlit
 bs4
+scipy~=1.10.0
+numpy~=1.26.4
+seaborn~=0.12.2
+matplotlib~=3.7.0
+beautifulsoup4~=4.11.1
+future~=0.18.3
+customtkinter~=5.2.2
+pillow~=10.3.0

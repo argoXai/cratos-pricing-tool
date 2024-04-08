@@ -1,12 +1,12 @@
-import pandas as pd
-import numpy as np
-# import seaborn as sns
-import random
-import numpy as np
+# import pandas as pd
+# import numpy as np
+# # import seaborn as sns
+# import random
+# import numpy as np
 # import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
-
+from scipy.stats import skewnorm
 import math
 from random import randrange
 from datetime import datetime
@@ -44,7 +44,7 @@ with st.container(border=True):
     st.subheader("Distributions")
     
     # Distribution Type Selection
-    dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal'], index=0)
+    dist_type = st.radio("Select Distribution Type", ['Triangular', 'Normal', 'Skewed Normal'], index=0)
     
     col1, col2, col3 = st.columns([2,2,2])
 
@@ -59,11 +59,17 @@ with st.container(border=True):
                 notice_pct_dist_x3 = col1_3.number_input("Right", value=0.25, key="notice_right", format="%.2f")
                 notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
                 notice_pct_dist = np.random.triangular(notice_pct_dist_x1, notice_pct_dist_x2, notice_pct_dist_x3, notice_pct_dist_x4)
-            else:
+            elif dist_type == 'Normal':
                 notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_mean", format="%.2f")
                 notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_std", format="%.2f")
                 notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_size")
                 notice_pct_dist = np.random.normal(notice_pct_dist_mean, notice_pct_dist_std, notice_pct_dist_x4)
+            else:  # Skewed Normal Distribution
+                notice_pct_dist_mean = col1_2.number_input("Mean", value=0.15, key="notice_skew_mean", format="%.2f")
+                notice_pct_dist_std = col1_3.number_input("Std", value=0.05, key="notice_skew_std", format="%.2f")
+                notice_pct_dist_skew = col1_1.number_input("Skew", value=0.0, key="notice_skew", format="%.2f")
+                notice_pct_dist_x4 = col1_4.number_input("Size", value=100000, key="notice_skew_size")
+                notice_pct_dist = skewnorm.rvs(a=notice_pct_dist_skew, loc=notice_pct_dist_mean, scale=notice_pct_dist_std, size=notice_pct_dist_x4)
             
             # Generate Notice Percentage Distribution Plot
             fig_notice_pct = go.Figure()
