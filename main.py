@@ -177,9 +177,9 @@ with st.container(border=True):
 with st.container(border=True):
     col21, col22, col23, col24 = st.columns([1,1,1,1])
     pricing_range = col21.number_input("Pricing Range", value=0.05)
-    sme_pricing_low, sme_pricing_high = col22.slider("Select SME Pricing Range", min_value=0.01, max_value=0.02, value=(0.012, 0.0145))
-    mm_pricing_low, mm_pricing_high = col23.slider("Select MM Pricing Range", min_value=0.01, max_value=0.02, value=(0.0135, 0.0165))
-    j_pricing_low, j_pricing_high = col24.slider("Select J Pricing Range", min_value=0.03, max_value=0.08, value=(0.035, 0.075))
+    sme_pricing_low, sme_pricing_high = col22.slider("Select SME Pricing Range", min_value=0.01, max_value=0.02, value=(0.012, 0.0145), step=pricing_range)
+    mm_pricing_low, mm_pricing_high = col23.slider("Select MM Pricing Range", min_value=0.01, max_value=0.02, value=(0.0135, 0.0165), step=pricing_range)
+    j_pricing_low, j_pricing_high = col24.slider("Select J Pricing Range", min_value=0.03, max_value=0.08, value=(0.035, 0.075), step=pricing_range)
 
 # pricing_list = pricing_generator(DV_list, limit_list, attachment_pt_list, primary_xs_list, pricing_range, sme_pricing_low, sme_pricing_high, mm_pricing_low, mm_pricing_high, j_pricing_low, j_pricing_high)
 
