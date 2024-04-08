@@ -263,6 +263,8 @@ with st.container(border=True):
         st.write(f"Max: {max_performance}")
         st.write(f"Min: {min_performance}")
 
+        w(df)
+        
         # Clearing messages after completion
         process_message.empty()
         section_message.empty()
