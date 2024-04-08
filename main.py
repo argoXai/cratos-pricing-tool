@@ -123,7 +123,7 @@ severity_dist = np.random.triangular(severity_dist_x1, severity_dist_x2, severit
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range = col14.number_input("DV Range", value=2500000)
+    DV_range = col14.number_input("DV Range Increment", value=2500000)
 
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
