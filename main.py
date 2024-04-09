@@ -130,7 +130,7 @@ with st.container(border=True):
 ########################################################################################################################################################
 
 with st.container(border=True):
-    col13, col14, col15, col16 = st.columns(4)
+    col13, col14, col15, col16,_,_ = st.columns(6)
     deal_count = col13.number_input("Deal Count", value=100)
     DV_range = 25  # Initial value for DV_range in millions
     DV_range_input = col14.number_input("DV Range Increment (in millions)", value=DV_range, step=1)
