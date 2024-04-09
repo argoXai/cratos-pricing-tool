@@ -127,10 +127,12 @@ with st.container(border=True):
 # st.write("Medium Severity %:", med_severity_pct)
 # st.write("High Severity %:", high_severity_pct)
 
+########################################################################################################################################################
+
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range = col14.number_input("DV Range Increment", value=2500000, step=500000)
+    DV_range = col14.number_input("DV Range Increment", value=2_500_000, step=500_000, format='%d')
 
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
