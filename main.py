@@ -132,11 +132,10 @@ with st.container(border=True):
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range = 25000000  # Initial value for DV_range
-    DV_range_input = col14.text_input("DV Range Increment", on_change=lambda: col14.text_input("DV Range Increment", value="", key="DV_range_input_clear"))
-    if DV_range_input:
-        DV_range = int(DV_range_input)
-    col14.text(f"Current Value: {DV_range:,}")
+    DV_range = 25  # Initial value for DV_range in millions
+    DV_range_input = col14.number_input("DV Range Increment (in millions)", value=DV_range, step=1)
+    DV_range = DV_range_input * 1000000  # Convert to actual value
+    col14.text(f"Current Value: {DV_range_input}M ({DV_range:,})")
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
