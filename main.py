@@ -133,8 +133,10 @@ with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
     DV_range_str = col14.text_input("DV Range Increment", value="2,500,000")
+    if "," not in DV_range_str:
+        DV_range_str = "{:,}".format(int(DV_range_str))
     DV_range = int(DV_range_str.replace(",", ""))
-
+    
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
     sme_low_DV, sme_upper_DV = col17.slider("Select SME DV Range", min_value=1000000, max_value=100000000, value=(10000000, 75000000), step=DV_range)
