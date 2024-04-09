@@ -190,7 +190,7 @@ def w(string):
 # notice_list = notice_generator(deal_count, notice_pct, notice_pct_loss, low_severity_pct, med_severity_pct, high_severity_pct)
 # w(f'notice list: {notice_list}')
 
-with st.container():
+with st.container(border=True):
     col1, col2,_,_ = st.columns([1,1,1,1])
     
     low_low_severity_loss, low_high_severity_loss = col1.slider("Select Low Severity Loss Range", min_value=0, max_value=1000000, value=(0, 1000000))
