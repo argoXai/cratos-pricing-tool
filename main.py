@@ -132,10 +132,7 @@ with st.container(border=True):
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range_str = col14.text_input("DV Range Increment", value="2,500,000")
-    if "," not in DV_range_str:
-        DV_range_str = "{:,}".format(int(DV_range_str))
-    DV_range = int(DV_range_str.replace(",", ""))
+    DV_range = col14.number_input("DV Range Increment", value=2500000, format="%d")
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
