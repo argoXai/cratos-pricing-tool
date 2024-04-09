@@ -132,10 +132,10 @@ with st.container(border=True):
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range_input = col14.number_input("DV Range Increment", format="%d")
-    DV_range_display = col14.text(f"{DV_range_input:,}")
-    DV_range = int(DV_range_input)
-
+    DV_range_input = col14.text_input("DV Range Increment")
+    if DV_range_input:
+        DV_range_display = col14.text(f"{int(DV_range_input):,}")
+        DV_range = int(DV_range_input)
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
