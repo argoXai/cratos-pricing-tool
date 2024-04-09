@@ -132,9 +132,29 @@ with st.container(border=True):
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range_input_placeholder = col14.empty()
-    DV_range_input = DV_range_input_placeholder.text_input("DV Range Increment", value="2,500,000")
-    DV_range = int(DV_range_input.replace(",", ""))
+    # DV_range_input_placeholder = col14.empty()
+    # DV_range_input = DV_range_input_placeholder.text_input("DV Range Increment", value="2,500,000")
+    # DV_range = int(DV_range_input.replace(",", ""))
+    # Initialize session state for DV_range_input if it doesn't exist
+    if 'DV_range_input' not in st.session_state:
+        st.session_state['DV_range_input'] = "2,500,000"  # Default value
+
+    # Create a text input widget with the session state value as the default value
+    DV_range_input = st.text_input("DV Range Increment", value=st.session_state['DV_range_input'])
+
+    # Update the session state with the new input, formatting it with commas
+    try:
+        # Attempt to convert the input to an integer to remove any existing commas,
+        # then format it with commas and update the session state
+        numeric_value = int(DV_range_input.replace(",", ""))
+        formatted_value = "{:,}".format(numeric_value)
+        st.session_state['DV_range_input'] = formatted_value
+    except ValueError:
+        # Handle the case where the input is not a valid integer
+        st.error("Please enter a valid number.")
+
+    # Use the numeric value for further processing
+    DV_range = numeric_value
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
