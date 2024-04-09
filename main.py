@@ -135,7 +135,7 @@ with st.container(border=True):
     DV_range = 25  # Initial value for DV_range in millions
     DV_range_input = col14.number_input("DV Range Increment (in millions)", value=DV_range, step=1)
     DV_range = DV_range_input * 1000000  # Convert to actual value
-    col14.text(f"Current Value: {DV_range_input}M ({DV_range:,})")
+    col14.text(f"Current Value: {DV_range:,}")
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
