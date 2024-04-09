@@ -33,7 +33,7 @@ with open("style.css") as css:
 def div():
     st.divider()
     
-st.title("ArgoXai - CRATOS - Pricing Tool - v3")
+st.title("ArgoXai - CRATOS - Pricing Tool - v3.4.9")
 col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
 number_of_simulations = col1.number_input("Enter Number of Simulations", value=10000)
 
