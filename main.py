@@ -142,6 +142,7 @@ with st.container(border=True):
     # Create a text input widget with the session state value as the default value
     DV_range_input = st.text_input("DV Range Increment", value=st.session_state['DV_range_input'])
 
+
     # Update the session state with the new input, formatting it with commas
     try:
         # Attempt to convert the input to an integer to remove any existing commas,
