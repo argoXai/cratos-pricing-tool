@@ -132,9 +132,9 @@ with st.container(border=True):
 with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
-    DV_range_input = col14.text_input("DV Range Increment", value="2,500,000")
+    DV_range_input_placeholder = col14.empty()
+    DV_range_input = DV_range_input_placeholder.text_input("DV Range Increment", value="2,500,000")
     DV_range = int(DV_range_input.replace(",", ""))
-    col14.text_input("DV Range Increment", value=f"{DV_range:,}", key="DV_range_display")
     
 with st.container(border=True):
     col17, col18, col19, col20 = st.columns(4)
