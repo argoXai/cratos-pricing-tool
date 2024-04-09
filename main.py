@@ -142,17 +142,19 @@ with st.container(border=True):
 with st.container(border=True):
     col17, col18, col19, col20, col21, col22 = st.columns(6)
 
-    sme_low_DV = col17.number_input("Select SME DV Min", min_value=1000000, max_value=100000000, value=10000000, step=DV_range)
+
+
+    sme_low_DV = col17.number_input("Select SME DV Min", min_value=1000000, max_value=99999999, value=10000000, step=DV_range)
     col17.text(f"Current Value: {sme_low_DV:,}")
-    sme_upper_DV = col18.number_input("Select SME DV Max", min_value=1000000, max_value=100000000, value=75000000, step=DV_range)
+    sme_upper_DV = col18.number_input("Select SME DV Max", min_value=sme_low_DV + DV_range, max_value=100000000, value=75000000, step=DV_range)
     col18.text(f"Current Value: {sme_upper_DV:,}")
-    mm_low_DV = col19.number_input("Select MM DV Min", min_value=50000000, max_value=1000000000, value=75000000, step=DV_range)
+    mm_low_DV = col19.number_input("Select MM DV Min", min_value=50000000, max_value=999999999, value=75000000, step=DV_range)
     col19.text(f"Current Value: {mm_low_DV:,}")
-    mm_upper_DV = col20.number_input("Select MM DV Max", min_value=50000000, max_value=1000000000, value=750000000, step=DV_range)
+    mm_upper_DV = col20.number_input("Select MM DV Max", min_value=mm_low_DV + DV_range, max_value=1000000000, value=750000000, step=DV_range)
     col20.text(f"Current Value: {mm_upper_DV:,}")
-    j_low_DV = col21.number_input("Select J DV Min", min_value=500000000, max_value=10000000000, value=750000000, step=DV_range)
+    j_low_DV = col21.number_input("Select J DV Min", min_value=500000000, max_value=9999999999, value=750000000, step=DV_range)
     col21.text(f"Current Value: {j_low_DV:,}")
-    j_upper_DV = col22.number_input("Select J DV Max", min_value=500000000, max_value=10000000000, value=5000000000, step=DV_range)
+    j_upper_DV = col22.number_input("Select J DV Max", min_value=j_low_DV + DV_range, max_value=10000000000, value=5000000000, step=DV_range)
     col22.text(f"Current Value: {j_upper_DV:,}")
 
     # Empty columns to fill the space as per instruction, but not used for inputs
