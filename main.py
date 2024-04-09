@@ -136,15 +136,24 @@ with st.container(border=True):
     DV_range_input = col14.number_input("DV Range Increment (millions)", value=DV_range, step=1)
     DV_range = DV_range_input * 1000000  # Convert to actual value
     col14.text(f"Current Value: {DV_range:,}")
-    
+
+########################################################################################################################################################   
+
 with st.container(border=True):
-    col17, col18, col19, col20 = st.columns(4)
+    col17, col18, col19, col20, col21, col22 = st.columns(6)
+
     sme_low_DV = col17.number_input("Select SME DV Min", min_value=1000000, max_value=100000000, value=10000000, step=DV_range)
-    sme_upper_DV = col17.number_input("Select SME DV Max", min_value=1000000, max_value=100000000, value=75000000, step=DV_range)
-    mm_low_DV = col18.number_input("Select MM DV Min", min_value=50000000, max_value=1000000000, value=75000000, step=DV_range)
-    mm_upper_DV = col18.number_input("Select MM DV Max", min_value=50000000, max_value=1000000000, value=750000000, step=DV_range)
-    j_low_DV = col19.number_input("Select J DV Min", min_value=500000000, max_value=10000000000, value=750000000, step=DV_range)
-    j_upper_DV = col19.number_input("Select J DV Max", min_value=500000000, max_value=10000000000, value=5000000000, step=DV_range)
+    col17.text(f"Current Value: {sme_low_DV:,}")
+    sme_upper_DV = col18.number_input("Select SME DV Max", min_value=1000000, max_value=100000000, value=75000000, step=DV_range)
+    col18.text(f"Current Value: {sme_upper_DV:,}")
+    mm_low_DV = col19.number_input("Select MM DV Min", min_value=50000000, max_value=1000000000, value=75000000, step=DV_range)
+    col19.text(f"Current Value: {mm_low_DV:,}")
+    mm_upper_DV = col20.number_input("Select MM DV Max", min_value=50000000, max_value=1000000000, value=750000000, step=DV_range)
+    col20.text(f"Current Value: {mm_upper_DV:,}")
+    j_low_DV = col21.number_input("Select J DV Min", min_value=500000000, max_value=10000000000, value=750000000, step=DV_range)
+    col21.text(f"Current Value: {j_low_DV:,}")
+    j_upper_DV = col22.number_input("Select J DV Max", min_value=500000000, max_value=10000000000, value=5000000000, step=DV_range)
+    col22.text(f"Current Value: {j_upper_DV:,}")
 
     # Empty columns to fill the space as per instruction, but not used for inputs
     # col18, col19, col20 are placeholders for future expansion or to maintain the layout
