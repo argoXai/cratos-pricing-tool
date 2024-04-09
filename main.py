@@ -133,7 +133,7 @@ with st.container(border=True):
     col13, col14, col15, col16 = st.columns(4)
     deal_count = col13.number_input("Deal Count", value=100)
     DV_range = 25000000  # Initial value for DV_range
-    DV_range_input = col14.text_input("DV Range Increment", value=str(DV_range))
+    DV_range_input = col14.text_input("DV Range Increment")
     if DV_range_input:
         DV_range_display = col14.text(f"{int(DV_range_input):,}")
         DV_range = int(DV_range_input)
