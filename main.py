@@ -311,6 +311,12 @@ with tab1:
                 with col2_3:
                     st.metric(label="Min", value=f"{min_performance:,.0f}", delta=delta_min_performance)
 
+
+            col3, _ = st.columns(2)
+            with col3.container(border=True):
+                st.metric(label="Average Rate On Line", value=f"{average_performance:,.0f}", delta=delta_average_performance)
+
+
             div()
             w(df)
             
