@@ -323,3 +323,13 @@ with tab1:
 
     # w(f'Frozen: 09-04-2024')
     # st.header('Frozen: 09-04-2024')
+
+
+with tab2:
+    st.title("Country Risk Section")
+
+with tab3:
+    st.title("Business Risk Section")
+
+with tab4:
+    st.title("Legal Documentation Risk")
