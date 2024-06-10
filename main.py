@@ -378,26 +378,15 @@ with tab4:
                     st.metric(label="Min", value=f"{min_performance:,.0f}", delta=delta_min_performance)
 
 
-            col3, _ = st.columns(2)
-            with col3.container(border=True):
+            col1, col2, _ = st.columns(3)
+            with col1.container(border=True):
                 average_rate_on_line = np.mean(average_rol_list) * 100
                 st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}%")
-
-            # col3, _ = st.columns(2)
-            # with col3.container(border=True):
-            #     average_rate_on_line = np.mean(average_rol_list) * 100
-            #     st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}%")
-
-            col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-            with col1.container(border=True):
+            with col2.container(border=True):
                 if option in mapping_dict:
                     total_n = mapping_dict[option]
-                    # st.subheader("CR Adjusted Rate")
-                    if 'average_rate_on_line' in locals():
-                        cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n))
-                        st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
-                    else:
-                        st.write("Please run the Portfolio Creator")
+                    cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n))
+                    st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
                 else:
                     st.write("Selected country is not in the mapping dictionary.")
 
