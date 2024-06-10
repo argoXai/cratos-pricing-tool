@@ -384,14 +384,14 @@ with tab3:
     
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
-        selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=None, placeholder="Select a Parent Sector...")
+        selected_parent = st.selectbox("Select Sector", parent_sectors, index=None, placeholder="Select a Sector...")
     
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
         if selected_parent:
-            selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None, placeholder="Select a Child Sector...")
-            st.write(f"You selected parent sector: {selected_parent}")
-            st.write(f"You selected child sector: {selected_child}")
+            selected_child = st.selectbox("Select an Industry", sector_dict[selected_parent], index=None, placeholder="Select Industry...")
+            st.write(f"You selected sector: {selected_parent}")
+            st.write(f"You selected industry: {selected_child}")
         else:
             st.write("Please select a parent sector to see child sectors.")
     
