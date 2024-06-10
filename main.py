@@ -34,6 +34,13 @@ def div():
     st.divider()
     
 tab1, tab2, tab3, tab4 = st.tabs(["Distribution Maker", "Country Risk", "Business Risk", "Legal Documentation Risk"])
+css = '''
+<style>
+    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+    font-size:2rem;
+    }
+</style>
+'''
 
 with tab1:
     
