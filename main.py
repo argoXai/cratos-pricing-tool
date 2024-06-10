@@ -314,7 +314,8 @@ with tab1:
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
-                st.metric(label="Average Rate On Line", value=f"{average_performance:,.0f}", delta=delta_average_performance)
+                average_rate_on_line = df['RoL'].mean()
+                st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}", delta=delta_average_performance)
 
 
             div()
