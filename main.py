@@ -353,7 +353,7 @@ with tab2:
         total_n = mapping_dict[option]
         # st.subheader("CR Adjusted Rate")
         if 'average_rate_on_line' in locals():
-            cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n)) * 100
+            cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n))
             st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
         else:
             st.write("Please run the Portfolio Creator")
