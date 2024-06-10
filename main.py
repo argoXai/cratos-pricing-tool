@@ -336,8 +336,9 @@ with tab1:
 
 with tab2:
     st.title("Country Risk Section")
-    df_countries = pd.read_csv("csv/Rater_COUNTRY_Analysis - Sheet1.csv")
+    df_countries = pd.read_csv("csv/Rater_COUNTRY_Analysis.csv")
     w(df_countries)
+    
 
 with tab3:
     st.title("Business Risk Section")
