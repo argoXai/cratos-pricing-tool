@@ -40,7 +40,7 @@ def div():
 tab1, tab2, tab3, tab4 = st.tabs(["Portfolio Creator", "Country Risk", "Business Risk", "Legal Documentation Risk"])
 
 
-with tab1:
+with tab4:
     
     
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
@@ -338,7 +338,7 @@ with tab1:
     # st.header('Frozen: 09-04-2024')
 
 
-with tab2:
+with tab1:
     st.title("Country Risk Section")
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
@@ -363,7 +363,7 @@ with tab2:
             st.write("Selected country is not in the mapping dictionary.")
 
             
-with tab3:
+with tab2:
     st.title("Business Risk Section")
     
     parent_sectors = ['Basic Materials', 'Capital Goods', 'Conglomerates', 'Consumer Cyclical', 'Consumer Non-Cyclical', 'Energy', 'Financial', 'Healthcare', 'Services', 'Technology', 'Transportation', 'Utilities']
@@ -395,5 +395,5 @@ with tab3:
         else:
             st.write("Please select a parent sector to see child sectors.")
     
-with tab4:
+with tab3:
     st.title("Legal Documentation Risk")
