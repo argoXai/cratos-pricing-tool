@@ -288,6 +288,7 @@ with tab1:
             delta_average_performance = "+1000"
             delta_max_performance = "-500"
             delta_min_performance = "+200"
+            # delta_average_rol = "+0.1%"
 
             col1, _ = st.columns(2)
 
@@ -315,7 +316,7 @@ with tab1:
             col3, _ = st.columns(2)
             with col3.container(border=True):
                 average_rate_on_line = df['RoL'].mean()
-                st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}", delta=delta_average_performance)
+                st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}")
 
 
             div()
