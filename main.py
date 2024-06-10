@@ -320,7 +320,7 @@ with tab1:
             col3, _ = st.columns(2)
             with col3.container(border=True):
                 average_rate_on_line = np.mean(average_rol_list)
-                st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}")
+                st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.4f}")
 
 
             div()
