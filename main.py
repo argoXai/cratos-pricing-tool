@@ -269,10 +269,8 @@ with tab1:
                 section_message.text("Generating Loss...")
                 df = df_generator(DV_list, pricing_list, attachment_pt_list, notice_list, loss_list, limit_list)
                 performance_stats.append(df['Performance'].sum().round(0))
-                if 'average_rol_list' not in st.session_state:
-                    st.session_state.average_rol_list = []
-                st.session_state.average_rol_list.append(df['RoL'].mean())
-                
+                average_rol_list.append(df['RoL'].mean())
+
             # Plotting the performance statistics using Plotly
             fig = px.histogram(performance_stats, nbins=100, title="Performance Statistics Distribution")
             fig.update_layout(bargap=0.1)
