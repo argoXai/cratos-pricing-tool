@@ -40,6 +40,67 @@ def div():
 tab1, tab2, tab3, tab4 = st.tabs(["Country Risk", "Business Risk", "Legal Documentation Risk", "Portfolio Creator"])
 
 
+
+with tab1:
+    st.title("Country Risk Section")
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1.container(border=True):
+        option = st.selectbox(
+            "Select a country",
+            list(mapping_dict.keys()),
+            index=None)
+        st.write("You selected:", option)
+
+    
+    # col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    # with col1.container(border=True):
+    #     if option in mapping_dict:
+    #         total_n = mapping_dict[option]
+    #         # st.subheader("CR Adjusted Rate")
+    #         if 'average_rate_on_line' in locals():
+    #             cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n))
+    #             st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
+    #         else:
+    #             st.write("Please run the Portfolio Creator")
+    #     else:
+    #         st.write("Selected country is not in the mapping dictionary.")
+
+            
+with tab2:
+    st.title("Business Risk Section")
+    
+    parent_sectors = ['Basic Materials', 'Capital Goods', 'Conglomerates', 'Consumer Cyclical', 'Consumer Non-Cyclical', 'Energy', 'Financial', 'Healthcare', 'Services', 'Technology', 'Transportation', 'Utilities']
+    sector_dict = {
+        'Basic Materials': ['Misc. Fabricated Products', 'Fabricated Plastic & Rubber', 'Containers & Packaging', 'Metal Mining', 'Gold & Silver', 'Chemical Manufacturing', 'Iron & Steel', 'Non-Metallic Mining', 'Chemicals - Plastics & Rubber', 'Paper & Paper Products', 'Forestry & Wood Products'],
+        'Capital Goods': ['Mobile Homes & RVs', 'Aerospace & Defense', 'Misc. Capital Goods', 'Constr. & Agric. Machinery', 'Construction Services', 'Construction - Raw Materials', 'Constr. - Supplies & Fixtures'],
+        'Conglomerates': ['Conglomerates'],
+        'Consumer Cyclical': ['Appliance & Tool', 'Auto & Truck Manufacturers', 'Recreational Products', 'Auto & Truck Parts', 'Apparel/Accessories', 'Jewelry & Silverware', 'Footwear', 'Furniture & Fixtures', 'Textiles - Non Apparel', 'Audio & Video Equipment', 'Tires', 'Photography'],
+        'Consumer Non-Cyclical': ['Beverages (Alcoholic)', 'Food Processing', 'Office Supplies', 'Personal & Household Products', 'Crops', 'Beverages (Non-Alcoholic)', 'Fish/Livestock', 'Tobacco'],
+        'Energy': ['Oil & Gas Operations', 'Oil Well Services & Equipment', 'Oil & Gas - Integrated', 'Coal', 'Alternative Energy'],
+        'Financial': ['Insurance (Accident & Health)', 'Insurance (Prop. & Casualty)', 'Other (Mutual Fund)', 'Investment Services', 'S&Ls/Savings Banks', 'Insurance (Miscellaneous)', 'Misc. Financial Services', 'Money Center Banks', 'Consumer Financial Services', 'Insurance (Life)', 'Regional Banks'],
+        'Healthcare': ['Healthcare Facilities', 'Medical Equipment & Supplies', 'Biotechnology & Drugs', 'Major Drugs'],
+        'Services': ['Business Services', 'Waste Management Services', 'Communications Services', 'Real Estate Operations', 'Broadcasting & Cable TV', 'Restaurants', 'Printing & Publishing', 'Retail (Drugs)', 'Casinos & Gaming', 'Retail (Specialty)', 'Retail & Repair (Automotive)', 'Personal Services', 'Recreational Activities', 'Motion Pictures', 'Rental & Leasing', 'Retail (Apparel)', 'Schools', 'Retail (Home Improvement)', 'Retail (Department & Discount)', 'Retail (Catalog & Mail Order)', 'Hotels & Motels', 'Security Systems & Services', 'Advertising', 'Printing Services', 'Retail (Grocery)', 'Retail (Technology)'],
+        'Technology': ['Semiconductors', 'Computer Hardware', 'Communications Equipment', 'Software & Programming', 'Computer Networks', 'Computer Services', 'Computer Peripherals', 'Electronic Instruments & Controls', 'Office Equipment', 'Computer Storage Devices', 'Scientific & Technical Instr.'],
+        'Transportation': ['Airline', 'Railroads', 'Misc. Transportation', 'Trucking', 'Air Courier', 'Water Transportation'],
+        'Utilities': ['Natural Gas Utilities', 'Electric Utilities', 'Water Utilities']
+    }
+    
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1.container(border=True):
+        selected_parent = st.selectbox("Select Sector", parent_sectors, index=None, placeholder="Select a Sector...")
+    
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1.container(border=True):
+        if selected_parent:
+            selected_child = st.selectbox("Select an Industry", sector_dict[selected_parent], index=None, placeholder="Select Industry...")
+            st.write(f"You selected sector: {selected_parent}")
+            st.write(f"You selected industry: {selected_child}")
+        else:
+            st.write("Please select a parent sector to see child sectors.")
+    
+with tab3:
+    st.title("Legal Documentation Risk")
+
 with tab4:
     
     
@@ -336,64 +397,3 @@ with tab4:
 
     # w(f'Frozen: 09-04-2024')
     # st.header('Frozen: 09-04-2024')
-
-
-with tab1:
-    st.title("Country Risk Section")
-    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-    with col1.container(border=True):
-        option = st.selectbox(
-            "Select a country",
-            list(mapping_dict.keys()),
-            index=None)
-        st.write("You selected:", option)
-
-    
-    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-    with col1.container(border=True):
-        if option in mapping_dict:
-            total_n = mapping_dict[option]
-            # st.subheader("CR Adjusted Rate")
-            if 'average_rate_on_line' in locals():
-                cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n))
-                st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
-            else:
-                st.write("Please run the Portfolio Creator")
-        else:
-            st.write("Selected country is not in the mapping dictionary.")
-
-            
-with tab2:
-    st.title("Business Risk Section")
-    
-    parent_sectors = ['Basic Materials', 'Capital Goods', 'Conglomerates', 'Consumer Cyclical', 'Consumer Non-Cyclical', 'Energy', 'Financial', 'Healthcare', 'Services', 'Technology', 'Transportation', 'Utilities']
-    sector_dict = {
-        'Basic Materials': ['Misc. Fabricated Products', 'Fabricated Plastic & Rubber', 'Containers & Packaging', 'Metal Mining', 'Gold & Silver', 'Chemical Manufacturing', 'Iron & Steel', 'Non-Metallic Mining', 'Chemicals - Plastics & Rubber', 'Paper & Paper Products', 'Forestry & Wood Products'],
-        'Capital Goods': ['Mobile Homes & RVs', 'Aerospace & Defense', 'Misc. Capital Goods', 'Constr. & Agric. Machinery', 'Construction Services', 'Construction - Raw Materials', 'Constr. - Supplies & Fixtures'],
-        'Conglomerates': ['Conglomerates'],
-        'Consumer Cyclical': ['Appliance & Tool', 'Auto & Truck Manufacturers', 'Recreational Products', 'Auto & Truck Parts', 'Apparel/Accessories', 'Jewelry & Silverware', 'Footwear', 'Furniture & Fixtures', 'Textiles - Non Apparel', 'Audio & Video Equipment', 'Tires', 'Photography'],
-        'Consumer Non-Cyclical': ['Beverages (Alcoholic)', 'Food Processing', 'Office Supplies', 'Personal & Household Products', 'Crops', 'Beverages (Non-Alcoholic)', 'Fish/Livestock', 'Tobacco'],
-        'Energy': ['Oil & Gas Operations', 'Oil Well Services & Equipment', 'Oil & Gas - Integrated', 'Coal', 'Alternative Energy'],
-        'Financial': ['Insurance (Accident & Health)', 'Insurance (Prop. & Casualty)', 'Other (Mutual Fund)', 'Investment Services', 'S&Ls/Savings Banks', 'Insurance (Miscellaneous)', 'Misc. Financial Services', 'Money Center Banks', 'Consumer Financial Services', 'Insurance (Life)', 'Regional Banks'],
-        'Healthcare': ['Healthcare Facilities', 'Medical Equipment & Supplies', 'Biotechnology & Drugs', 'Major Drugs'],
-        'Services': ['Business Services', 'Waste Management Services', 'Communications Services', 'Real Estate Operations', 'Broadcasting & Cable TV', 'Restaurants', 'Printing & Publishing', 'Retail (Drugs)', 'Casinos & Gaming', 'Retail (Specialty)', 'Retail & Repair (Automotive)', 'Personal Services', 'Recreational Activities', 'Motion Pictures', 'Rental & Leasing', 'Retail (Apparel)', 'Schools', 'Retail (Home Improvement)', 'Retail (Department & Discount)', 'Retail (Catalog & Mail Order)', 'Hotels & Motels', 'Security Systems & Services', 'Advertising', 'Printing Services', 'Retail (Grocery)', 'Retail (Technology)'],
-        'Technology': ['Semiconductors', 'Computer Hardware', 'Communications Equipment', 'Software & Programming', 'Computer Networks', 'Computer Services', 'Computer Peripherals', 'Electronic Instruments & Controls', 'Office Equipment', 'Computer Storage Devices', 'Scientific & Technical Instr.'],
-        'Transportation': ['Airline', 'Railroads', 'Misc. Transportation', 'Trucking', 'Air Courier', 'Water Transportation'],
-        'Utilities': ['Natural Gas Utilities', 'Electric Utilities', 'Water Utilities']
-    }
-    
-    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-    with col1.container(border=True):
-        selected_parent = st.selectbox("Select Sector", parent_sectors, index=None, placeholder="Select a Sector...")
-    
-    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-    with col1.container(border=True):
-        if selected_parent:
-            selected_child = st.selectbox("Select an Industry", sector_dict[selected_parent], index=None, placeholder="Select Industry...")
-            st.write(f"You selected sector: {selected_parent}")
-            st.write(f"You selected industry: {selected_child}")
-        else:
-            st.write("Please select a parent sector to see child sectors.")
-    
-with tab3:
-    st.title("Legal Documentation Risk")
