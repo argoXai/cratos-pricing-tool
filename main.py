@@ -356,7 +356,7 @@ with tab2:
             cr_adjusted_rate = average_rate_on_line + (average_rate_on_line * total_n)
             st.metric(value=cr_adjusted_rate)
         else:
-            st.write("CR Adjusted Rate: Please run the Portfolio Creator")
+            st.write("Please run the Portfolio Creator")
 with tab3:
     st.title("Business Risk Section")
 
