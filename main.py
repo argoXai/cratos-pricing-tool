@@ -365,6 +365,28 @@ with tab2:
             
 with tab3:
     st.title("Business Risk Section")
+    
+    parent_sectors = ['Basic Materials', 'Capital Goods', 'Conglomerates', 'Consumer Cyclical', 'Consumer Non-Cyclical', 'Energy', 'Financial', 'Healthcare', 'Services', 'Technology', 'Transportation', 'Utilities']
+    sector_dict = {
+        'Basic Materials': ['Misc. Fabricated Products', 'Fabricated Plastic & Rubber', 'Containers & Packaging', 'Metal Mining', 'Gold & Silver', 'Chemical Manufacturing', 'Iron & Steel', 'Non-Metallic Mining', 'Chemicals - Plastics & Rubber', 'Paper & Paper Products', 'Forestry & Wood Products'],
+        'Capital Goods': ['Mobile Homes & RVs', 'Aerospace & Defense', 'Misc. Capital Goods', 'Constr. & Agric. Machinery', 'Construction Services', 'Construction - Raw Materials', 'Constr. - Supplies & Fixtures'],
+        'Conglomerates': ['Conglomerates'],
+        'Consumer Cyclical': ['Appliance & Tool', 'Auto & Truck Manufacturers', 'Recreational Products', 'Auto & Truck Parts', 'Apparel/Accessories', 'Jewelry & Silverware', 'Footwear', 'Furniture & Fixtures', 'Textiles - Non Apparel', 'Audio & Video Equipment', 'Tires', 'Photography'],
+        'Consumer Non-Cyclical': ['Beverages (Alcoholic)', 'Food Processing', 'Office Supplies', 'Personal & Household Products', 'Crops', 'Beverages (Non-Alcoholic)', 'Fish/Livestock', 'Tobacco'],
+        'Energy': ['Oil & Gas Operations', 'Oil Well Services & Equipment', 'Oil & Gas - Integrated', 'Coal', 'Alternative Energy'],
+        'Financial': ['Insurance (Accident & Health)', 'Insurance (Prop. & Casualty)', 'Other (Mutual Fund)', 'Investment Services', 'S&Ls/Savings Banks', 'Insurance (Miscellaneous)', 'Misc. Financial Services', 'Money Center Banks', 'Consumer Financial Services', 'Insurance (Life)', 'Regional Banks'],
+        'Healthcare': ['Healthcare Facilities', 'Medical Equipment & Supplies', 'Biotechnology & Drugs', 'Major Drugs'],
+        'Services': ['Business Services', 'Waste Management Services', 'Communications Services', 'Real Estate Operations', 'Broadcasting & Cable TV', 'Restaurants', 'Printing & Publishing', 'Retail (Drugs)', 'Casinos & Gaming', 'Retail (Specialty)', 'Retail & Repair (Automotive)', 'Personal Services', 'Recreational Activities', 'Motion Pictures', 'Rental & Leasing', 'Retail (Apparel)', 'Schools', 'Retail (Home Improvement)', 'Retail (Department & Discount)', 'Retail (Catalog & Mail Order)', 'Hotels & Motels', 'Security Systems & Services', 'Advertising', 'Printing Services', 'Retail (Grocery)', 'Retail (Technology)'],
+        'Technology': ['Semiconductors', 'Computer Hardware', 'Communications Equipment', 'Software & Programming', 'Computer Networks', 'Computer Services', 'Computer Peripherals', 'Electronic Instruments & Controls', 'Office Equipment', 'Computer Storage Devices', 'Scientific & Technical Instr.'],
+        'Transportation': ['Airline', 'Railroads', 'Misc. Transportation', 'Trucking', 'Air Courier', 'Water Transportation'],
+        'Utilities': ['Natural Gas Utilities', 'Electric Utilities', 'Water Utilities']
+    }
+    
+    selected_parent = st.selectbox("Select a Parent Sector", parent_sectors)
+    selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent])
+    
+    st.write(f"You selected parent sector: {selected_parent}")
+    st.write(f"You selected child sector: {selected_child}")
 
     
 with tab4:
