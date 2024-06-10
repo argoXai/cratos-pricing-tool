@@ -382,8 +382,8 @@ with tab3:
         'Utilities': ['Natural Gas Utilities', 'Electric Utilities', 'Water Utilities']
     }
     
-    selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=None)
-    selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None)
+    selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=0)
+    selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=0)
     
     st.write(f"You selected parent sector: {selected_parent}")
     st.write(f"You selected child sector: {selected_child}")
