@@ -325,6 +325,7 @@ with tab1:
 
             div()
             w(df)
+            w(average_rol_list)
             
             # Clearing messages after completion
             process_message.empty()
