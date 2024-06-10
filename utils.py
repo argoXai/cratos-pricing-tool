@@ -150,3 +150,34 @@ def df_generator(DV_list,pricing_list,attachment_pt_list,notice_list,loss_list,l
     df['Attachment_Pt'] = df['DV']*df['Attachment_Pt_Pct']
     df['Performance'] = df.apply(performance, axis=1)
     return df
+
+
+mapping_dict = {
+    'Denmark': 0.0,
+    'Sweden': 0.023,
+    'Netherlands': 0.036,
+    'Republic of Ireland': 0.098,
+    'Norway': 0.127,
+    'Finland': 0.129,
+    'Germany': 0.157,
+    'Belgium': 0.277,
+    'Luxembourg': 0.281,
+    'United Kingdom': 0.305,
+    'Austria': 0.359,
+    'France': 0.399,
+    'Estonia': 0.415,
+    'Spain': 0.452,
+    'Czech Republic': 0.51,
+    'Portugal': 0.548,
+    'Lithuania': 0.555,
+    'Italy': 0.602,
+    'Poland': 0.662,
+    'Cyprus': 0.715,
+    'Slovenia': 0.765,
+    'Latvia': 0.804,
+    'Hungary': 0.86,
+    'Greece': 0.883,
+    'Romania': 0.902,
+    'Slovakia': 0.928,
+    'Croatia': 0.948,
+    'Bulgaria ': 1.0}

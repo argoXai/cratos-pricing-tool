@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 import os
 import json
 import pandas as pd
-from utils import severity_generator, DV_generator, structure_generator, pricing_generator, notice_generator, loss_generator, df_generator
+from utils import severity_generator, DV_generator, structure_generator, pricing_generator, notice_generator, loss_generator, df_generator, mapping_dict
 
 
 
@@ -340,8 +340,11 @@ with tab1:
 
 with tab2:
     st.title("Country Risk Section")
-    # df_countries = pd.read_csv("csv/Rater_COUNTRY_Analysis.csv")
-    # w(df_countries)
+    option = st.selectbox(
+        "Select a country",
+        list(mapping_dict.keys()))
+
+    st.write("You selected:", option)
 
 
 
