@@ -246,13 +246,15 @@ with tab1:
             process_message = st.empty()
             section_message = st.empty()
 
+            performance_stats = []
+            average_rol_list = []
+
             for i in range(number_of_simulations):
                 progress = int(((i+1)/number_of_simulations)*100)
                 progress_bar.progress(progress)
                 # Updating messages
                 process_message.text(f"Processing: Simulation {i+1}/{number_of_simulations}")
                 
-
                 notice_pct, notice_pct_loss, low_severity_pct, med_severity_pct, high_severity_pct = severity_generator(notice_pct_dist, notice_pct_loss_dist, severity_dist)
                 section_message.text("Generating Severity...")
                 DV_list = DV_generator(deal_count, DV_range, sme_low_DV, sme_upper_DV, mm_low_DV, mm_upper_DV, sme_pct, mm_pct, j_pct, j_low_DV, j_upper_DV)
@@ -267,6 +269,7 @@ with tab1:
                 section_message.text("Generating Loss...")
                 df = df_generator(DV_list, pricing_list, attachment_pt_list, notice_list, loss_list, limit_list)
                 performance_stats.append(df['Performance'].sum().round(0))
+                average_rol_list.append(df['RoL'].mean())
 
             # Plotting the performance statistics using Plotly
             fig = px.histogram(performance_stats, nbins=100, title="Performance Statistics Distribution")
@@ -316,7 +319,7 @@ with tab1:
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
-                average_rate_on_line = df['RoL'].mean()
+                average_rate_on_line = np.mean(average_rol_list)
                 st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}")
 
 
