@@ -37,7 +37,7 @@ st.title("ArgoXai - CRATOS - Pricing Tool - v4")
 def div():
     st.divider()
     
-tab1, tab2, tab3, tab4 = st.tabs(["Portfolio Creator", "Country Risk", "Business Risk", "Legal Documentation Risk"])
+tab1, tab2, tab3, tab4 = st.tabs(["Country Risk", "Business Risk", "Legal Documentation Risk", "Portfolio Creator"])
 
 
 with tab4:
