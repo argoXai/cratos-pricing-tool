@@ -30,21 +30,18 @@ with open("style.css") as css:
 # aws_secret_access_key = st.secrets.AWS_SECRET_ACCESS_KEY
 # aws_default_region = st.secrets.AWS_DEFAULT_REGION
 
+
+st.title("ArgoXai - CRATOS - Pricing Tool - v4")
+
 def div():
     st.divider()
     
 tab1, tab2, tab3, tab4 = st.tabs(["Distribution Maker", "Country Risk", "Business Risk", "Legal Documentation Risk"])
-css = '''
-<style>
-    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
-    font-size:2rem;
-    }
-</style>
-'''
+
 
 with tab1:
     
-    st.title("ArgoXai - CRATOS - Pricing Tool - v4")
+    
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     number_of_simulations = col1.number_input("Enter Number of Simulations", value=10000)
 
