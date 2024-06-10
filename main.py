@@ -383,11 +383,13 @@ with tab3:
     }
     
     selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=None, placeholder="Select a Parent Sector...")
-    selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None, placeholder="Select a Child Sector...")
     
-    st.write(f"You selected parent sector: {selected_parent}")
-    st.write(f"You selected child sector: {selected_child}")
-
+    if selected_parent:
+        selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None, placeholder="Select a Child Sector...")
+        st.write(f"You selected parent sector: {selected_parent}")
+        st.write(f"You selected child sector: {selected_child}")
+    else:
+        st.write("Please select a parent sector to see child sectors.")
     
 with tab4:
     st.title("Legal Documentation Risk")
