@@ -340,11 +340,14 @@ with tab1:
 
 with tab2:
     st.title("Country Risk Section")
-    option = st.selectbox(
-        "Select a country",
-        list(mapping_dict.keys()))
-
-    st.write("You selected:", option)
+    with st.container(border=True):
+        col1, col2 = st.columns(2)
+        with col1:
+            option = st.selectbox(
+                "Select a country",
+                list(mapping_dict.keys()))
+        with col2:
+            st.write("You selected:", option)
 
 
 
