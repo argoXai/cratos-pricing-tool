@@ -344,7 +344,8 @@ with tab2:
     with col1.container(border=True):
         option = st.selectbox(
             "Select a country",
-            list(mapping_dict.keys()))
+            list(mapping_dict.keys()),
+            index=0)
         st.write("You selected:", option)
 
     
