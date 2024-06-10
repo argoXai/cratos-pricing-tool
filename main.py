@@ -319,7 +319,7 @@ with tab1:
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
-                average_rate_on_line = np.mean(average_rol_list)
+                average_rate_on_line = np.mean(average_rol_list) * 100
                 st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}%")
 
 
@@ -353,11 +353,10 @@ with tab2:
         total_n = mapping_dict[option]
         # st.subheader("CR Adjusted Rate")
         if 'average_rate_on_line' in locals():
-            cr_adjusted_rate = average_rate_on_line + (average_rate_on_line * total_n)
+            cr_adjusted_rate = (average_rate_on_line + (average_rate_on_line * total_n)) * 100
             st.metric(label="CR Adjusted Rate", value=f"{cr_adjusted_rate:.2f}%")
         else:
             st.write("Please run the Portfolio Creator")
-
 
 
             
