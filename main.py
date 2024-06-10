@@ -382,14 +382,18 @@ with tab3:
         'Utilities': ['Natural Gas Utilities', 'Electric Utilities', 'Water Utilities']
     }
     
-    selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=None, placeholder="Select a Parent Sector...")
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1.container(border=True):
+        selected_parent = st.selectbox("Select a Parent Sector", parent_sectors, index=None, placeholder="Select a Parent Sector...")
     
-    if selected_parent:
-        selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None, placeholder="Select a Child Sector...")
-        st.write(f"You selected parent sector: {selected_parent}")
-        st.write(f"You selected child sector: {selected_child}")
-    else:
-        st.write("Please select a parent sector to see child sectors.")
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1.container(border=True):
+        if selected_parent:
+            selected_child = st.selectbox("Select a Child Sector", sector_dict[selected_parent], index=None, placeholder="Select a Child Sector...")
+            st.write(f"You selected parent sector: {selected_parent}")
+            st.write(f"You selected child sector: {selected_child}")
+        else:
+            st.write("Please select a parent sector to see child sectors.")
     
 with tab4:
     st.title("Legal Documentation Risk")
