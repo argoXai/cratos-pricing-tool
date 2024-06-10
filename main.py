@@ -351,13 +351,12 @@ with tab2:
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
         total_n = mapping_dict[option]
-        st.title("CR Adjusted Rate")
+        st.subtitle("CR Adjusted Rate")
         if 'average_rate_on_line' in locals():
             cr_adjusted_rate = average_rate_on_line + (average_rate_on_line * total_n)
-            st.metric(label="CR Adjusted Rate", value=cr_adjusted_rate)
+            st.metric(value=cr_adjusted_rate)
         else:
-            st.metric(label="CR Adjusted Rate", value="Please run the Portfolio Creator")
-
+            st.write("CR Adjusted Rate: Please run the Portfolio Creator")
 with tab3:
     st.title("Business Risk Section")
 
