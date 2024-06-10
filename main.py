@@ -340,6 +340,7 @@ with tab2:
     w(df_countries)
     
 
+
 with tab3:
     st.title("Business Risk Section")
 
