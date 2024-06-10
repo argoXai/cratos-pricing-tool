@@ -351,7 +351,7 @@ with tab2:
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
         total_n = mapping_dict[option]
-        st.subtitle("CR Adjusted Rate")
+        st.subheader("CR Adjusted Rate")
         if 'average_rate_on_line' in locals():
             cr_adjusted_rate = average_rate_on_line + (average_rate_on_line * total_n)
             st.metric(value=cr_adjusted_rate)
