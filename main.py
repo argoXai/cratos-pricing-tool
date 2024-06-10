@@ -44,7 +44,7 @@ with tab1:
     
     
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-    number_of_simulations = col1.number_input("Enter Number of Simulations", value=10000)
+    number_of_simulations = col1.number_input("Enter Number of Simulations", value=100)
 
     st.divider()
     # Combined Distribution Containers
@@ -357,6 +357,7 @@ with tab2:
             st.metric(label="CR Adjusted Rate", value=cr_adjusted_rate)
         else:
             st.write("Please run the Portfolio Creator")
+
 
 
             
