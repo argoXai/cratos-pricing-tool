@@ -54,6 +54,9 @@ with tab1:
 
             
 with tab2:
+    
+    selected_child = None
+
     st.title("Business Risk Section")
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
@@ -62,7 +65,7 @@ with tab2:
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
         if selected_parent:
-            selected_child = None
+            
             selected_child = st.selectbox("Select an Industry", sector_dict[selected_parent], index=None, placeholder="Select Industry...")
             st.write(f"You selected sector: {selected_parent}")
             if selected_child:
