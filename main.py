@@ -55,8 +55,6 @@ with tab1:
             
 with tab2:
     st.title("Business Risk Section")
-
-    
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
     with col1.container(border=True):
         selected_parent = st.selectbox("Select Sector", parent_sectors, index=None, placeholder="Select a Sector...")
@@ -66,14 +64,17 @@ with tab2:
         if selected_parent:
             selected_child = st.selectbox("Select an Industry", sector_dict[selected_parent], index=None, placeholder="Select Industry...")
             st.write(f"You selected sector: {selected_parent}")
-            st.write(f"You selected industry: {selected_child}")
-            
-            if industry_mapping[selected_child][1] == 0:
-                st.markdown(
-                    f"<span style='color: red; font-size: 30px;'>Risk sits outside binding authority, unable to quote</span>",
-                    unsafe_allow_html=True)
+            if selected_child:
+                st.write(f"You selected industry: {selected_child}")
+                
+                if industry_mapping[selected_child][1] == 0:
+                    st.markdown(
+                        f"<span style='color: red; font-size: 30px;'>Risk sits outside binding authority, unable to quote</span>",
+                        unsafe_allow_html=True)
+            else:
+                st.write("Please select an industry.")
         else:
-            st.write("Please select Sector and Industry.")
+            st.write("Please select a sector.")
     
 with tab3:
     st.title("Legal Documentation Risk")
