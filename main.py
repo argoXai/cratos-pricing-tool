@@ -221,7 +221,7 @@ with tab4:
         mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct, step=0.01)
         j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct - mm_pct, step=0.01)
         
-        if sme_pct + mm_pct + j_pct != 1.0:
+        if not math.isclose(sme_pct + mm_pct + j_pct, 1.0, abs_tol=0.01):
             st.error("The sum of SME %, MM %, and J % must be 100%")
 
     # DV_list = DV_generator(deal_count, DV_range, sme_low_DV, sme_upper_DV, mm_low_DV, mm_upper_DV, sme_pct, mm_pct, j_pct, j_low_DV, j_upper_DV)
