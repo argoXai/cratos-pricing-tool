@@ -395,10 +395,9 @@ with tab4:
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
-                col3_1 = st.columns(1)
-                with col3_1:
-                    if selected_child:
-                        st.write(industry_mapping[selected_child])
+
+                if selected_child:
+                    st.write(industry_mapping[selected_child])
 
             div()
             w(df)
