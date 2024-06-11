@@ -393,16 +393,22 @@ with tab4:
                         st.write("Selected country is not in the mapping dictionary.")
                     
 
-            col3, _ = st.columns(2)
+            col3, col4 = st.columns(2)
             with col3.container(border=True):
-
                 if selected_child:
-                    # st.write(industry_mapping[selected_child])
-                    st.write(f'Sector:                 \t{industry_mapping[selected_child][0]}')
-                    st.write(f'Within Binder Authority:\t{industry_mapping[selected_child][1]}')
-                    st.write(f'Areas of Heightened Risk:\t{industry_mapping[selected_child][2]}')
-                    st.write(f'Exclusions:             \t{industry_mapping[selected_child][3]}')
-                    st.write(f'Score:                  \t{industry_mapping[selected_child][4]}')
+                    st.write(f'Sector:')
+                    st.write(f'Within Binder Authority:')
+                    st.write(f'Areas of Heightened Risk:')
+                    st.write(f'Exclusions:')
+                    st.write(f'Score:')
+            with col4.container(border=True):
+                if selected_child:
+                    st.write(f'{industry_mapping[selected_child][0]:<20}')
+                    st.write(f'{industry_mapping[selected_child][1]:<20}')
+                    st.write(f'{industry_mapping[selected_child][2]:<20}')
+                    st.write(f'{industry_mapping[selected_child][3]:<20}')
+                    st.write(f'{industry_mapping[selected_child][4]:<20}')
+                    
             div()
             w(df)
             w(average_rol_list)
