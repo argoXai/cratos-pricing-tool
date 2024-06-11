@@ -382,10 +382,10 @@ with tab4:
                             unsafe_allow_html=True)
                     else:
                         # st.metric(label="Sector", value=industry_mapping[selected_child][0])
-                        st.metric(label="Within Binder Authority", value=industry_mapping[selected_child][1])
+                        # st.metric(label="Within Binder Authority", value=industry_mapping[selected_child][1])
                         st.metric(label="Areas of Heightened Risk", value=industry_mapping[selected_child][2])
                         st.metric(label="Exclusions", value=industry_mapping[selected_child][3])
-                        st.metric(label="Score", value=industry_mapping[selected_child][4])
+                        # st.metric(label="Score", value=industry_mapping[selected_child][4])
 
             div()
             w(df)
