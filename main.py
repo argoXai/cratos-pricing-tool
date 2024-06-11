@@ -396,9 +396,9 @@ with tab4:
             col3, _ = st.columns(2)
             with col3.container(border=True):
                 st.title('Business Risk')
-                
+
                 if selected_child:
-                    st.metric(label="Sector", value=industry_mapping[selected_child][0])
+                    # st.metric(label="Sector", value=industry_mapping[selected_child][0])
                     st.metric(label="Within Binder Authority", value=industry_mapping[selected_child][1])
                     st.metric(label="Areas of Heightened Risk", value=industry_mapping[selected_child][2])
                     st.metric(label="Exclusions", value=industry_mapping[selected_child][3])
