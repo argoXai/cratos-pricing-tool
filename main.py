@@ -382,7 +382,7 @@ with tab4:
                         st.write("Selected country is not in the mapping dictionary.")
 
                 with col3_3:
-                    if industry_mapping[selected_child][4] != None:
+                    if selected_child and industry_mapping[selected_child][4] is not None:
                         br_adjusted_rate = (average_rate_on_line * industry_mapping[selected_child][4])
                         st.metric(label="BR Adjustment", value=f"{br_adjusted_rate:.2f}%")
 
