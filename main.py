@@ -344,7 +344,7 @@ with tab4:
             delta_min_performance = "+200"
             # delta_average_rol = "+0.1%"
 
-            col1, _ = st.columns(2)
+            col1, col222 = st.columns(2)
 
             with col1.container(border=True):
                 col1_1, col1_2, col1_3 = st.columns(3)
@@ -405,7 +405,7 @@ with tab4:
                     st.metric(label="Total", value=f"{total_risk:,.2f}%")            
 
             # col3, col4 = st.columns(2)
-            with col4.container(border=True):
+            with col222.container(border=True):
                 
                 st.title(f'Country: {option}')
                 st.title('Business Risk')
