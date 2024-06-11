@@ -397,12 +397,11 @@ with tab4:
             with col3.container(border=True):
 
                 if selected_child:
-                    # st.write(industry_mapping[selected_child])
-                    st.write(f'Sector: {industry_mapping[selected_child][0]}')
-                    st.write(f'Within Binder Authority: {industry_mapping[selected_child][1]}')
-                    st.write(f'Areas of Heightened Risk: {industry_mapping[selected_child][2]}')
-                    st.write(f'Exclusions: {industry_mapping[selected_child][3]}')
-                    st.write(f'Score: {industry_mapping[selected_child][4]}')
+                    st.metric(label="Sector", value=industry_mapping[selected_child][0])
+                    st.metric(label="Within Binder Authority", value=industry_mapping[selected_child][1])
+                    st.metric(label="Areas of Heightened Risk", value=industry_mapping[selected_child][2])
+                    st.metric(label="Exclusions", value=industry_mapping[selected_child][3])
+                    st.metric(label="Score", value=industry_mapping[selected_child][4])
 
             div()
             w(df)
