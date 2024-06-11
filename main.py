@@ -425,8 +425,8 @@ with tab4:
                         # st.metric(label="Score", value=industry_mapping[selected_child][4])
 
             div()
-            w(df)
-            w(average_rol_list)
+            # w(df)
+            # w(average_rol_list)
             
             # Clearing messages after completion
             process_message.empty()
