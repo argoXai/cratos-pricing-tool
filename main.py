@@ -398,11 +398,12 @@ with tab4:
             col3, _ = st.columns(2)
             with col3.container(border=True):
                 
+                st.title(f'Country: {option}')
                 st.title('Business Risk')
 
-                st.markdown(
-                            f"<span style='color: green; font-size: 35px;'>Country: {option}</span>",
-                            unsafe_allow_html=True)
+                # st.markdown(
+                #             f"<span style='color: green; font-size: 35px;'>Country: {option}</span>",
+                #             unsafe_allow_html=True)
                 
 
                 if selected_child:
