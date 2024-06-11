@@ -218,8 +218,8 @@ with tab4:
             return 1.0 - sme_pct - mm_pct
         
         sme_pct = col1.number_input("SME %", value=0.35, format="%.2f", min_value=0.0, max_value=1.0, step=0.05)
-        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=round((1.0 - sme_pct) * 20) / 20, step=0.05)
-        j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=round((1.0 - sme_pct - mm_pct) * 20) / 20, step=0.05)
+        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0, step=0.05)
+        j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=1.0 step=0.05)
         
         if not math.isclose(sme_pct + mm_pct + j_pct, 1.0, abs_tol=0.01):
             st.error("The sum of SME %, MM %, and J % must be 100%")
