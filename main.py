@@ -45,6 +45,10 @@ with tab1:
 with tab2:
 
     selected_child = None
+    average_rate_on_line = None
+    cr_adjusted_rate = None
+    br_adjusted_rate = None
+    legal_risk = None
 
     st.title("Business Risk Section")
     col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
