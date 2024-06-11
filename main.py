@@ -1,9 +1,4 @@
-# import pandas as pd
-# import numpy as np
-# # import seaborn as sns
-# import random
 import numpy as np
-# import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 from scipy.stats import skewnorm
@@ -26,11 +21,6 @@ st.set_page_config(layout="wide")  # Force wide mode
 with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
-# # AWS Credentials
-# aws_access_key_id = st.secrets.AWS_ACCESS_KEY_ID
-# aws_secret_access_key = st.secrets.AWS_SECRET_ACCESS_KEY
-# aws_default_region = st.secrets.AWS_DEFAULT_REGION
-
 
 st.title("ArgoXai - CRATOS - Pricing Tool - v4")
 
@@ -38,7 +28,6 @@ def div():
     st.divider()
     
 tab1, tab2, tab3, tab4 = st.tabs(["Country Risk", "Business Risk", "Legal Documentation Risk", "Portfolio Creator"])
-
 
 
 with tab1:
@@ -378,7 +367,7 @@ with tab4:
             with col3.container(border=True):
 
                 st.title('RoL')
-                col3_1, col3_2, col3_3 = st.columns(3)
+                col3_1, col3_2, col3_3, col3_4, col3_5 = st.columns(5)
 
                 with col3_1:
                     average_rate_on_line = np.mean(average_rol_list) * 100
@@ -403,17 +392,19 @@ with tab4:
                     else:
                         st.write("No industry selected.")
 
-                    
+                with col3_4:
+                    legal_risk = 0.24
+                    st.metric(label="Legal Documentation Risk", value=f"{legal_risk:,.2f}%")            
+
+                with col3_5:
+                    total_risk = average_rate_on_line + cr_adjusted_rate + br_adjusted_rate + legal_risk
+                    st.metric(label="Total", value=f"{total_risk:,.2f}%")            
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
                 
                 st.title(f'Country: {option}')
                 st.title('Business Risk')
-
-                # st.markdown(
-                #             f"<span style='color: green; font-size: 35px;'>Country: {option}</span>",
-                #             unsafe_allow_html=True)
                 
 
                 if selected_child:
