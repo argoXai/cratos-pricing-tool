@@ -397,7 +397,7 @@ with tab4:
                     st.metric(label="Legal Documentation Risk", value=f"{legal_risk:,.2f}%")            
 
                 with col3_5:
-                    total_risk = average_rate_on_line + cr_adjusted_rate + br_adjusted_rate + legal_risk
+                    total_risk = sum(filter(None, [average_rate_on_line, cr_adjusted_rate, br_adjusted_rate, legal_risk]))
                     st.metric(label="Total", value=f"{total_risk:,.2f}%")            
 
             col3, _ = st.columns(2)
