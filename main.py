@@ -54,7 +54,7 @@ with tab1:
 
             
 with tab2:
-    
+
     selected_child = None
 
     st.title("Business Risk Section")
@@ -214,12 +214,6 @@ with tab4:
 
     with st.container(border=True):
         col1, col2, col3, _ = st.columns([2, 2, 2, 2])
-        
-        def update_mm_pct():
-            return 1.0 - sme_pct - j_pct
-        
-        def update_j_pct():
-            return 1.0 - sme_pct - mm_pct
         
         sme_pct = col1.number_input("SME %", value=0.35, format="%.2f", min_value=0.0, max_value=1.0, step=0.05)
         mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0, step=0.05)
@@ -389,7 +383,8 @@ with tab4:
                     if selected_child and industry_mapping[selected_child][4] is not None:
                         br_adjusted_rate = (average_rate_on_line * industry_mapping[selected_child][4])
                         st.metric(label="BR Adjustment", value=f"{br_adjusted_rate:.2f}%")
-
+                    else:
+                        st.write("No industry selected.")
 
                     
 
