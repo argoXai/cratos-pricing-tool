@@ -397,19 +397,12 @@ with tab4:
             with col3.container(border=True):
 
                 if selected_child:
-                    col3_1, _ = st.columns([1, 3])
-                    with col3_1:
-                        st.write(f'Sector:')
-                        st.write(f'Within Binder Authority:')
-                        st.write(f'Areas of Heightened Risk:')
-                        st.write(f'Exclusions:')
-                        st.write(f'Score:')
-                    with _:
-                        st.write(f'{industry_mapping[selected_child][0]}')
-                        st.write(f'{industry_mapping[selected_child][1]}')
-                        st.write(f'{industry_mapping[selected_child][2]}')
-                        st.write(f'{industry_mapping[selected_child][3]}')
-                        st.write(f'{industry_mapping[selected_child][4]}')
+                    # st.write(industry_mapping[selected_child])
+                    st.write(f'Sector:                 \t{industry_mapping[selected_child][0]}')
+                    st.write(f'Within Binder Authority:\t{industry_mapping[selected_child][1]}')
+                    st.write(f'Areas of Heightened Risk:\t{industry_mapping[selected_child][2]}')
+                    st.write(f'Exclusions:             \t{industry_mapping[selected_child][3]}')
+                    st.write(f'Score:                  \t{industry_mapping[selected_child][4]}')
             div()
             w(df)
             w(average_rol_list)
