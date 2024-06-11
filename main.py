@@ -401,8 +401,7 @@ with tab4:
                     st.write(f'Areas of Heightened Risk:')
                     st.write(f'Exclusions:')
                     st.write(f'Score:')
-            with col4.container(border=True):
-                if selected_child:
+
                     st.write(f'{industry_mapping[selected_child][0]:<20}')
                     st.write(f'{industry_mapping[selected_child][1]:<20}')
                     st.write(f'{industry_mapping[selected_child][2]:<20}')
