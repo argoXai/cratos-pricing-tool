@@ -356,7 +356,7 @@ with tab4:
                     st.metric(label="Pct. of scenarios above 10m", value=f"{percentage_above_10m*100:.2f}%", delta=delta_percentage_above_10m)
             
 
-            col1, _ = st.columns(2)
+            # col1, _ = st.columns(2)
             with col1.container(border=True):
                 col2_1, col2_2, col2_3 = st.columns(3)
                 with col2_1:
@@ -367,8 +367,8 @@ with tab4:
                     st.metric(label="Min", value=f"{min_performance:,.0f}", delta=delta_min_performance)
 
 
-            col3, col4 = st.columns(2)
-            with col3.container(border=True):
+            # col3, col4 = st.columns(2)
+            with col1.container(border=True):
 
                 st.title('RoL')
                 col3_1, col3_2, col3_3, col3_4, col3_5 = st.columns(5)
