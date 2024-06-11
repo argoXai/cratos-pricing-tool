@@ -209,7 +209,7 @@ with tab4:
         # col18, col19, col20 are placeholders for future expansion or to maintain the layout
 
     with st.container(border=True):
-        col1, col2, col3, _ = st.columns([2,2,2,2])
+        col1, col2, col3, _ = st.columns([2, 2, 2, 2])
         
         def update_mm_pct():
             return 1.0 - sme_pct - j_pct
@@ -218,8 +218,8 @@ with tab4:
             return 1.0 - sme_pct - mm_pct
         
         sme_pct = col1.number_input("SME %", value=0.35, format="%.2f", min_value=0.0, max_value=1.0, step=0.01)
-        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct, step=0.01, on_change=update_mm_pct)
-        j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct - mm_pct, step=0.01, on_change=update_j_pct)
+        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct, step=0.01)
+        j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct - mm_pct, step=0.01)
         
         if sme_pct + mm_pct + j_pct != 1.0:
             st.error("The sum of SME %, MM %, and J % must be 100%")
