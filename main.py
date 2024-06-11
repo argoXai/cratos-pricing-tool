@@ -374,7 +374,10 @@ with tab4:
 
                 if selected_child:
                     if industry_mapping[selected_child][1] == 0:
-                        st.write("Risk sits outside binding authority, unable to quote")
+                        # st.write("Risk sits outside binding authority, unable to quote")
+                        st.markdown(
+                            f"<span style='color: red; font-size: 80px;'>Risk sits outside binding authority, unable to quote</span>",
+                            unsafe_allow_html=True)
                     else:
                         # st.metric(label="Sector", value=industry_mapping[selected_child][0])
                         st.metric(label="Within Binder Authority", value=industry_mapping[selected_child][1])
