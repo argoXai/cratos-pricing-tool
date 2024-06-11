@@ -367,7 +367,7 @@ with tab4:
                     st.metric(label="Min", value=f"{min_performance:,.0f}", delta=delta_min_performance)
 
 
-            col3, _ = st.columns(2)
+            col3, col4 = st.columns(2)
             with col3.container(border=True):
 
                 st.title('RoL')
@@ -404,8 +404,8 @@ with tab4:
                     total_risk = sum(filter(None, [average_rate_on_line, cr_adjusted_rate, br_adjusted_rate, legal_risk]))
                     st.metric(label="Total", value=f"{total_risk:,.2f}%")            
 
-            col3, _ = st.columns(2)
-            with col3.container(border=True):
+            # col3, col4 = st.columns(2)
+            with col4.container(border=True):
                 
                 st.title(f'Country: {option}')
                 st.title('Business Risk')
