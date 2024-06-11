@@ -69,7 +69,9 @@ with tab2:
             st.write(f"You selected industry: {selected_child}")
             
             if industry_mapping[selected_child][1] == 0:
-                st.write("Risk sits outside binding authority, unable to quote")
+                st.markdown(
+                    f"<span style='color: red; font-size: 30px;'>Risk sits outside binding authority, unable to quote</span>",
+                    unsafe_allow_html=True)
         else:
             st.write("Please select Sector and Industry.")
     
@@ -376,7 +378,7 @@ with tab4:
                     if industry_mapping[selected_child][1] == 0:
                         # st.write("Risk sits outside binding authority, unable to quote")
                         st.markdown(
-                            f"<span style='color: red; font-size: 40px;'>Risk sits outside binding authority, unable to quote</span>",
+                            f"<span style='color: red; font-size: 30px;'>Risk sits outside binding authority, unable to quote</span>",
                             unsafe_allow_html=True)
                     else:
                         # st.metric(label="Sector", value=industry_mapping[selected_child][0])
