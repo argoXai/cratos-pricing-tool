@@ -397,6 +397,7 @@ with tab4:
                 st.markdown(
                             f"<span style='color: green; font-size: 35px;'>Country: {option}</span>",
                             unsafe_allow_html=True)
+                
 
                 if selected_child:
                     if industry_mapping[selected_child][1] == 0:
