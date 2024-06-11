@@ -210,9 +210,19 @@ with tab4:
 
     with st.container(border=True):
         col1, col2, col3, _ = st.columns([2,2,2,2])
-        sme_pct = col1.number_input("SME %", value=0.35, format="%.2f")
-        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f")
-        j_pct = col3.number_input("J %", value=0.1, format="%.2f")
+        
+        def update_mm_pct():
+            return 1.0 - sme_pct - j_pct
+        
+        def update_j_pct():
+            return 1.0 - sme_pct - mm_pct
+        
+        sme_pct = col1.number_input("SME %", value=0.35, format="%.2f", min_value=0.0, max_value=1.0, step=0.01)
+        mm_pct = col2.number_input("MM %", value=0.55, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct, step=0.01, on_change=update_mm_pct)
+        j_pct = col3.number_input("J %", value=0.1, format="%.2f", min_value=0.0, max_value=1.0 - sme_pct - mm_pct, step=0.01, on_change=update_j_pct)
+        
+        if sme_pct + mm_pct + j_pct != 1.0:
+            st.error("The sum of SME %, MM %, and J % must be 100%")
 
     # DV_list = DV_generator(deal_count, DV_range, sme_low_DV, sme_upper_DV, mm_low_DV, mm_upper_DV, sme_pct, mm_pct, j_pct, j_low_DV, j_upper_DV)
 
