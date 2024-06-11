@@ -366,11 +366,14 @@ with tab4:
 
             col3, _ = st.columns(2)
             with col3.container(border=True):
+
                 st.title('RoL')
                 col3_1, col3_2, col3_3 = st.columns(3)
+
                 with col3_1:
                     average_rate_on_line = np.mean(average_rol_list) * 100
                     st.metric(label="Average Rate On Line", value=f"{average_rate_on_line:,.2f}%")
+
                 with col3_2:
                     if option in mapping_dict:
                         total_n = mapping_dict[option]
@@ -383,6 +386,10 @@ with tab4:
                     if selected_child and industry_mapping[selected_child][4] is not None:
                         br_adjusted_rate = (average_rate_on_line * industry_mapping[selected_child][4])
                         st.metric(label="BR Adjustment", value=f"{br_adjusted_rate:.2f}%")
+                    elif selected_child and industry_mapping[selected_child][4] is None:
+                        br_adjusted_rate = 0
+                        st.metric(label="BR Adjustment", value=f"{br_adjusted_rate:.2f}%")
+                        pass
                     else:
                         st.write("No industry selected.")
 
