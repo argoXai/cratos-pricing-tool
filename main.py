@@ -79,12 +79,15 @@ with tab2:
                 st.write("Please select an industry.")
         else:
             st.write("Please select a sector.")
-    
-col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
-with col1:
-    st.title("Legal Documentation Risk")
 
-    uploaded_file = st.file_uploader("Choose a file")
+with tab3:
+
+    col1, col2, _, _, _, _, _, _ = st.columns([3,3,1,1,1,1,1,1])
+    with col1:
+        st.title("Legal Documentation Risk")
+
+        uploaded_file = st.file_uploader("Choose a file")
+        
     if uploaded_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         dataframe = pd.read_csv('Rate_LD_Analysis.csv')
