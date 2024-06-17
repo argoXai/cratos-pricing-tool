@@ -22,7 +22,7 @@ with open("style.css") as css:
     st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
 
 
-st.title("ArgoXai - CRATOS - Pricing Tool - v4")
+st.title("ArgoXai - CRATOS - Pricing Tool - v5")
 
 def div():
     st.divider()
